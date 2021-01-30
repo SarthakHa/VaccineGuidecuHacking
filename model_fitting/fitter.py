@@ -69,9 +69,11 @@ class covsir_models:
         state = {} #Writing as a dictionary
         for i in range(self.n):
             if len(self.countries) > 1:
-                state[self.countries[i]] = self.jhu_data.records(self.countries[i])
-            else: 
-                state[self.countries[i]] = self.jhu_data.records(self.countries[0],self.states[i])
+                df, _ = self.jhu_data.records(self.countries[i])
+                state[self.countries[i]] = df.tail(1)
+            else:
+                df, _ = self.jhu_data.records(self.countries[0],self.states[i])
+                state[self.states[i]] = df.tail(1)
         return state
         
 if __name__ == "__main__": #Just for testing
