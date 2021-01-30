@@ -8,7 +8,7 @@ class covsir_models:
     def __init__(self,countries,states=None):
         self.countries = countries
         self.states = states
-        self.n = len(states) if states>0 else len(countries)
+        self.n = len(countries) if len(countries)>1 else len(states)
         self.data = cs.DataLoader("model_fitting/data")
         self.jhu_data = self.data.jhu()
         self.population_data = self.data.population()
