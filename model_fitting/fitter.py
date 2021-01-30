@@ -1,9 +1,6 @@
 import numpy as np
 import covsirphy as cs
 import datetime
-#import matplotlib.pyplot as plt
-#import matplotlib
-#matplotlib.use("TKAGG")
 
 """
 Class to determine the best fit parameters for each country using covsirphy:
@@ -44,7 +41,7 @@ class covsir_models:
                 snl = cs.Scenario(self.jhu_data,self.population_data,country=self.countries[i],province=None,tau=1440)
             else:
                 snl = cs.Scenario(self.jhu_data,self.population_data,countries=self.countries[0],province=self.states[i],tau=1440)
-            past_date = (datetime.datetime.now()-datetime.timedelta(days=30)).strftime("%d%b%Y")
+            past_date = (datetime.datetime.now()-datetime.timedelta(days=40)).strftime("%d%b%Y")
             snl.first_date = past_date #Defining the first date of data to be 30 days ago.
             snl.trend(show_figure=False)
             snl.disable(phases=["0th"]) #Ignoring the first phase as we are starting the data at an arbitrary point.
@@ -75,10 +72,14 @@ class covsir_models:
                 df, _ = self.jhu_data.records(self.countries[0],self.states[i])
                 state[self.states[i]] = df.tail(1)
         return state
+    
+    def calling(self): #so that it is simpler for the other class to call and get all the data
+        populations = self.retrieve_population()
+        pars = self.model()
+        state = self.final_state()
+        return [populations, pars, state]
         
 if __name__ == "__main__": #Just for testing
     test = covsir_models(["United States", "Canada", "United Kingdom", "Germany", "Japan"],None)#["Kentucky", "Texas", "Arizona", "Michigan", "Colorado"])
-    results = test.model()
-    #pop = test.retrieve_population()
-    #final_state = test.final_state
+    results = test.calling()
     print(results)
