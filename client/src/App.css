@@ -6,7 +6,7 @@
   background-color: RGB(235, 247, 246);
 }
 
-.grid-container {
+.main-grid-container {
   display: grid;
   grid-template-columns: 1.5fr 1.3fr;
   grid-template-rows: 2fr 3fr 1fr;
@@ -73,4 +73,51 @@
   font-size: 1.5rem;
   font-style: normal;
   font-weight: 700;
+}
+
+.cloud-footer-div {
+  margin-top: 10vh;
+  margin-left: 3vw;
+  grid-row: 3/4;
+  grid-column: 1/4;
+}
+
+.cloud-image {
+  height: 20vh;
+  width: 30vw;
+  opacity: 0.8;
+}
+
+.second-grid-container {
+  display: grid;
+  grid-template-columns: 1.3fr 1.8fr;
+  grid-template-rows: 1fr 3fr 3fr 1fr;
+  background-color: RGB(235, 247, 246);
+  height: 100vh;
+}
+
+.second-image-div {
+  grid-column: 1/2;
+  grid-row: 2/4;
+  margin-left: 5vw;
+}
+
+.instruction {
+  grid-column: 2/3;
+  grid-row: 2/4;
+  margin-right: 10rem;
+}
+
+.instruction h1 {
+  font-family: "Montserrat", Helvetica, Arial, serif;
+  font-style: normal;
+  font-weight: 600;
+}
+
+.instruction h3 {
+  color: black;
+  font-family: "Montserrat", Helvetica, Arial, serif;
+  font-size: 1.2rem;
+  font-style: normal;
+  font-weight: 500;
 }
