@@ -36,9 +36,9 @@ pipenv --version
 
 You don’t necessarily have to have the same exact version for it to work properly, but I’m just listing the version I have here for completeness sake (and if something doesn’t work for you, you can try switching to the version listed here). 
 
-Great! You should now have pipenv, node, and npm installed on your machine. Now we will use these binaries to install the dependencies to run the project. Navigate to the root directory of the interview repo:
+Great! You should now have pipenv, node, and npm installed on your machine. Now we will use these binaries to install the dependencies to run the project. Navigate to the root directory of the VaccineGuidecuHacking repo:
 
-`cd interview`
+`cd VaccineGuidecuHacking`
 
 Use pipenv to install the server dependencies:
 
