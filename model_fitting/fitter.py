@@ -30,10 +30,22 @@ class covsir_models:
         return params
         
     def retrieve_population(self):
-        x = 0
+        self.population = {} #Writing as a dictionary
+        for i in range(self.n):
+            if self.countries > 1:
+                self.population[self.countryes[i]] = self.population_data.value(self.countries[i], province = None)
+            else:
+                self.population[self.states[i]] = self.population_data.value(self.countries[0], province = self.states[i])
+        return self.population
     
     def final_state(self):
-        x = 0
+        state = {} #Writing as a dictionary
+        for i in range(self.n):
+            if countries > 1:
+                state[self.countries[i]] = self.jhu_data.records(self.countries[i])
+            else: 
+                state[self.countries[i]] = self.jhu_data.records(self.countries[0],self.states[i])
+        return state
         
 if __name__ == "__main__": #Just for testing
     x = 0
