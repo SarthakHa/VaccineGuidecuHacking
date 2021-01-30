@@ -4,4 +4,4 @@ If you do not see the vaccine you are concerned with in "vaccines.csv", add it i
 
 No data needs to be added to the covid19dh.csv as it automatically updates each time the model parameters are called to be fit.
 
-samplefittingdata.npy contains data as [population,pars,final_state] for Kentucky, Texas, Arizona, Michigan and Colorado as dictionaries, respectively. Can be used for any testing if you want to avoid waiting for fitting. Similarly, countriesexamples.npy contains data of the same format for the United States, Canada, United Kingdom, Germany and Japan as dictionaries, respectively.
+Test data in the form of .npy files can be found in the folder test_data in the previous directory. These files an be used for any testing if you want to avoid waiting for fitting.
