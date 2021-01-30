@@ -11,7 +11,7 @@ from env import CustomEnv
 This file is used to call all our functions that we want at once. This saves the server having to call things from different places.
 """
 
-master_path = "/home/jehand/VaccineGuidecuHacking"
+master_path = "/home/jehand/VaccineGuidecuHacking" #editable
 
 def run(countries,states,steps,numbvaccines,efficacy,pathID,iterations=100):
     """
