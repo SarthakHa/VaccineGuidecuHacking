@@ -1,8 +1,9 @@
 import numpy as np
 import covsirphy as cs
-import matplotlib.pyplot as plt
-import matplotlib
-matplotlib.use("TKAGG")
+import datetime
+#import matplotlib.pyplot as plt
+#import matplotlib
+#matplotlib.use("TKAGG")
 
 """
 Class to determine the best fit parameters for each country using covsirphy:
@@ -43,13 +44,16 @@ class covsir_models:
                 snl = cs.Scenario(self.jhu_data,self.population_data,country=self.countries[i],province=None,tau=1440)
             else:
                 snl = cs.Scenario(self.jhu_data,self.population_data,countries=self.countries[0],province=self.states[i],tau=1440)
+            past_date = (datetime.datetime.now()-datetime.timedelta(days=30)).strftime("%d%b%Y")
+            snl.first_date = past_date #Defining the first date of data to be 30 days ago.
             snl.trend(show_figure=False)
+            snl.disable(phases=["0th"]) #Ignoring the first phase as we are starting the data at an arbitrary point.
             snl.estimate(cs.SIRD,timeout=60) #Setting max time to be a minute so that it does not run too long
             pars = [snl.get("rho","last"),snl.get("sigma","last"), snl.get("kappa","last")]
             if len(self.countries) > 1:
                 params[self.countries[i]] = pars
             else:
-                params[self.states[i]] = [pars]
+                params[self.states[i]] = pars
         return params
         
     def retrieve_population(self):
