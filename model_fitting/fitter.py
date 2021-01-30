@@ -17,13 +17,13 @@ class covsir_models:
     def model(self):
         params = {} #Storing the parameter values as a dictionary ("country" : [Parameters])
         for i in range(self.n):
-            if countries > 1:
+            if len(self.countries) > 1:
                 snl = cs.Scenario(self.data,self.population_data,country=self.countries[i],province=None,tau=1440)
             else:
                 snl = cs.Scenario(self.data,self.population_data,countries=self.countries[0],province=self.states[i],tau=1440)
         snl.trend(show_figure=False)
         snl.estimate(cs.SIRD,timeout=60)
-        if countries > 1:
+        if len(self.countries) > 1:
             params[self.countries[i]] = pars
         else:
             params[self.states[i]] = [pars]
@@ -32,7 +32,7 @@ class covsir_models:
     def retrieve_population(self):
         self.population = {} #Writing as a dictionary
         for i in range(self.n):
-            if self.countries > 1:
+            if len(self.countries) > 1:
                 self.population[self.countryes[i]] = self.population_data.value(self.countries[i], province = None)
             else:
                 self.population[self.states[i]] = self.population_data.value(self.countries[0], province = self.states[i])
@@ -48,4 +48,8 @@ class covsir_models:
         return state
         
 if __name__ == "__main__": #Just for testing
-    x = 0
+    test = covsir_models(["United States", "Canada", "United Kingdom", "Germany", "Japan"],None)#["Kentucky", "Texas", "Arizona", "Michigan", "Colorado"])
+    results = test.model()
+    #pop = test.retrieve_population()
+    #final_state = test.final_state
+    print(results)
