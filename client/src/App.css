@@ -9,13 +9,68 @@
 .grid-container {
   display: grid;
   grid-template-columns: 1.5fr 1.3fr;
-  grid-template-rows: 1fr 3fr 1fr;
+  grid-template-rows: 2fr 3fr 1fr;
   height: 100vh;
 }
 
 .main {
   grid-column: 1/2;
+  grid-row: 2/3;
+  margin-left: 8rem;
+}
 
-  grid-row: 1/3;
-  background-color: pink;
+.navbar {
+  grid-column: 2/3;
+  grid-row: 1/2;
+  margin-top: 5vh;
+}
+
+.navbar h3 {
+  display: inline;
+  font-family: "Montserrat", Helvetica, Arial, serif;
+  font-size: 1.1rem;
+  margin: 2rem;
+}
+
+.image-div {
+  grid-column: 2/3;
+  grid-row: 2/3;
+}
+
+.main h1 {
+  margin: 0px;
+  font-family: "Montserrat", Helvetica, Arial, serif;
+  color: rgba(255, 125, 107, 1);
+  font-size: 5em;
+  font-style: normal;
+  font-weight: 800;
+}
+
+.main h2 {
+  color: black;
+  font-family: "Montserrat", Helvetica, Arial, serif;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 500;
+  margin-right: 5rem;
+}
+
+.main button {
+  background-image: linear-gradient(
+    to right,
+    rgb(252, 182, 172),
+    rgba(255, 125, 107, 1)
+  );
+
+  border-radius: 20px;
+  display: inline-block;
+  border: none;
+}
+
+.main h3 {
+  color: white;
+  font-family: "Montserrat", Helvetica, Arial, serif;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 700;
 }
