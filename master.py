@@ -7,11 +7,11 @@ from data_formatting import clean_data
 from train_model import train_agent
 from env import CustomEnv
 
-master_path = ""
-
 """
 This file is used to call all our functions that we want at once. This saves the server having to call things from different places.
 """
+
+master_path = "/home/jehand/VaccineGuidecuHacking"
 
 def run(countries,states,steps,numbvaccines,efficacy,pathID,iterations=100):
     """
@@ -38,6 +38,21 @@ def run(countries,states,steps,numbvaccines,efficacy,pathID,iterations=100):
     iterations : int (default to 100)
         The number of iterations for the training to run
     """
+    #First getting the model fitting params
+    fitting = covsir_models(countries,states)
+    results = fitting.calling()
+    print("Fitted data")
+    print(results)
+    
+    #Cleaning the data
+    names, pars, total_pops, i_states = clean_data(results)
+    print("Cleaned Data")
+    
+    #Start training
+    env = CustomEnv(pars,i_states,total_pops,numbvaccines,steps,names,efficacy)
+    train_agent(env,0.0003,iterations,master_path+"/user_data/"+str(pathID))
+    print("\n Training Complete \n")
+    
 
 def run_wrapper(q):
     """
@@ -46,6 +61,8 @@ def run_wrapper(q):
     q : dictionary
         Dictionary of all the different inputs needed
     """
+    
+    
 
 if __name__ == "__main__": #Just testing to see if it works, this won't run otherwise
     run(["USA"],["Kentucky","Texas","Arizona"],180,100000,0.97,"1",iterations=10)
