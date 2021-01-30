@@ -4,16 +4,38 @@ import matplotlib.pyplot as plt
 import matplotlib
 matplotlib.use("TKAGG")
 
+"""
+Class to determine the best fit parameters for each country using covsirphy:
+https://lisphilar.github.io/covid19-sir/covsirphy.html 
+
+We assume that the user is either looking at multiple countries, or at different states/provinces
+within one country of their choosing.
+
+The function 'retrieve_population' will output the population of each country/state.
+
+The function 'model' will output a dictionary of the best fit parameters for each of these countries according to a SIR-D 
+model.
+"""
+
 class covsir_models:
+    """
+    INPUT PARAMETERS:
+    ----------------
+    countries : array-like
+        The countries that the user is interested in.
+
+    states : array-like (or None)
+        The states/provinces that the user would like to consider if they are keeping the country fixed. Default is None.
+    """
     def __init__(self,countries,states=None):
         self.countries = countries
         self.states = states
-        self.n = len(countries) if len(countries)>1 else len(states)
+        self.n = len(countries) if len(countries)>1 else len(states) #Number of variable countries or states
         self.data = cs.DataLoader("model_fitting/data")
         self.jhu_data = self.data.jhu()
         self.population_data = self.data.population()
     
-    #We use an SIR-D Model    
+    #We use an SIR-D Model 
     def model(self):
         params = {} #Storing the parameter values as a dictionary ("country" : [Parameters])
         for i in range(self.n):
@@ -22,7 +44,7 @@ class covsir_models:
             else:
                 snl = cs.Scenario(self.jhu_data,self.population_data,countries=self.countries[0],province=self.states[i],tau=1440)
             snl.trend(show_figure=False)
-            snl.estimate(cs.SIRD,timeout=60)
+            snl.estimate(cs.SIRD,timeout=60) #Setting max time to be a minute so that it does not run too long
             pars = [snl.get("rho","last"),snl.get("sigma","last"), snl.get("kappa","last")]
             if len(self.countries) > 1:
                 params[self.countries[i]] = pars
