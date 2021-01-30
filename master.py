@@ -1,5 +1,8 @@
 import numpy as np
+import sys
+sys.path.append('./model_fitting')
 from fitter import covsir_models
+sys.path.append("./optimization")
 from data_formatting import clean_data
 from train_model import train_agent
 from env import CustomEnv
