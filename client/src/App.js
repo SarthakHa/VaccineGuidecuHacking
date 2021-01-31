@@ -51,6 +51,10 @@ const App = ()=> {
             <InputSection/>
           </div>
         </div>
+        <div className="warning-div">
+          <h1 className="warning-word">Warning</h1>
+          <h2 className="warning-text"> Depending on the data for the places chosen, the initial parameter fitting can take up to <strong>1 minute per place</strong>. Choosing fewer places is a better method to get quicker results... </h2>
+        </div>
       </div>
 
     
