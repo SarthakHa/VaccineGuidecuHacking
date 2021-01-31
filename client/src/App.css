@@ -36,7 +36,15 @@
 .navbar {
   grid-column: 2/3;
   grid-row: 1/2;
-  margin-top: 5vh;
+  width: 100%;
+  margin: auto;
+  margin-right: 5vw;
+  padding: 3vh;
+  text-align:right;
+  position: fixed;
+  z-index: 9999;
+  right: 0vw;
+  background: RGB(235, 247, 246, 0.9);
 }
 
 .navbar h3 {
@@ -136,7 +144,7 @@
   grid-template-columns: 1.3fr 1.8fr;
   grid-template-rows: 1fr 3fr 3fr 3fr 1fr;
   background-color: RGB(235, 247, 246);
-  height: 100vh;
+  height: 115vh;
 }
 
 .second-image-div {
@@ -201,7 +209,7 @@
   height: 15vh;
   width: 28vw;
   opacity: 0.8;
-  margin-top: 0px;
+  margin-top: 4rem;
   margin-left: 3rem;
   margin-right: 1rem;
 }
@@ -211,7 +219,23 @@
   grid-template-columns: 1fr 2fr 2fr 1fr;
   grid-template-rows: 0.5fr 3.5fr 2fr 2fr;
   background-color: RGB(235, 247, 246);
-  height: 100vh;
+  height: 280vh;
+}
+
+.cloud-footer-div-below {
+  margin-top: 0;
+  grid-row: 0/-1;
+  grid-column: 1/-1;
+}
+
+.cloud-footer-div-below .cloud-image {
+  height: 15vh;
+  width: 28vw;
+  opacity: 0.8;
+  margin-top: 0px;
+  margin-left: 3rem;
+  margin-right: 1rem;
+  margin-bottom: 5rem;
 }
 
 .third-grid-container .text h1 {
@@ -242,11 +266,14 @@
   font-weight: 400;
 }
 
-.third-grid-container .text .moreText {
-  display: none;
+.third-grid-container .teacher-image-div {
+  grid-row: 3/4;
+  grid-column: 2/4;
+  text-align: center;
+  margin-top: 5vh;
 }
 
-.third-grid-container .teacher-image-div {
+.third-grid-container .text .math-image-div {
   grid-row: 3/4;
   grid-column: 2/4;
   text-align: center;
@@ -266,6 +293,7 @@
   margin-top: 0px;
   margin-left: 3rem;
   margin-right: 1rem;
+  margin-bottom: -14rem;
 }
 
 .chart-grid-container {
@@ -273,7 +301,7 @@
   grid-template-columns: 1.3fr 1.8fr;
   grid-template-rows: 1fr 3fr 3fr 3fr 1fr;
   background-color: RGB(235, 247, 246);
-  height: 150vh;
+  height: 180vh;
 }
 
 .display-section-div {
@@ -309,4 +337,48 @@
   width: 70vw;
   margin-left: 15vw;
   margin-top: 10vh;
+}
+
+.fourth-grid-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr 2fr 1fr;
+  grid-template-rows: 0.5fr 3.5fr 2fr 2fr;
+  background-color: RGB(235, 247, 246);
+  height: 100vh;
+  margin-top: -25vh;
+}
+
+.fourth-grid-container .simulationtext h1 {
+  color: black;
+  font-family: "Montserrat", Helvetica, Arial, serif;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 600;
+}
+
+.fourth-grid-container .simulationtext h3 {
+  color: black;
+  font-family: "Montserrat", Helvetica, Arial, serif;
+  font-size: 1.1rem;
+  font-style: normal;
+  font-weight: 500;
+}
+
+.fourth-grid-container .simulationtext {
+  margin-left: 10vw;
+  margin-right: 10vw;
+  grid-row: 2/4;
+  grid-column: 1/5;
+  color: black;
+  font-family: "Montserrat", Helvetica, Arial, serif;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.fourth-grid-container .vr-image-div {
+  grid-row: 4/4;
+  grid-column: 4/4;
+  text-align: center;
+  margin-top: 5vh;
 }

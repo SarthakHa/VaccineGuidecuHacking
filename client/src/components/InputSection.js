@@ -241,8 +241,6 @@ const InputSection= ({userID,simulateClick})=>{
           id="standard-number"
           label="Number of vaccines per day (0<20millions)"
           type="number"
-          margin="1px"
-          variant="outlined"
           value={numberOfVaccinePerDay}
           onChange={e=>setNumberOfVaccinePerDay(e.target.value)}
           InputLabelProps={{
@@ -284,7 +282,7 @@ const InputSection= ({userID,simulateClick})=>{
             <MenuItem value={"Russia"}>Russia</MenuItem>
             <MenuItem value={"United States"}>United States</MenuItem>
             <MenuItem value={"Japan"}>Japan</MenuItem>
-            <MenuItem value={"South Alfrica"}>South Alfrica</MenuItem>
+            <MenuItem value={"South Africa"}>South Africa</MenuItem>
             <MenuItem value={"Canada"}>Canada</MenuItem>
               </Select>
               </FormControl>
