@@ -74,7 +74,14 @@ def run_wrapper(q):
     q : dictionary
         Dictionary of all the different inputs needed
     """
-    
+    unique_id = int(q['uid'][0])
+    countries = q['countries'][0].split(',') 
+    steps = int(q['total_time'][0])
+    efficacy = float(q['efficacy'][0])
+    states = q['states'][0].split(',')
+    iterations = int(q['iterations'][0])
+    numbvaccines = int(q['total_vaccines'][0])
+    run(countries,states,steps,numbvaccines,efficacy,unique_id,iterations=iterations)
     
 
 if __name__ == "__main__": #Just testing to see if it works, this won't run otherwise
