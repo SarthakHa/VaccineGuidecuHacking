@@ -47,7 +47,7 @@ const App = ()=> {
          <main className="main">
          <div className="guide-vaccine"> <h1>Guide</h1><h1>Vaccine</h1></div>
          <div><h2>Find the optimal vaccine distribution across your own chosen places</h2></div>
-         <div className="choose-btn-div">  <button onClick={scrollSelectionDivHandler}> <h3>Choose your Places!</h3></button> </div>
+         <div className="choose-btn-div">  <Button onClick={scrollSelectionDivHandler}> <h3>Choose your Places!</h3></Button> </div>
          </main>
           <div className="navbar">
             <h3 onClick={scrollSelectionDivHandler}>Selection</h3>
@@ -98,7 +98,7 @@ const App = ()=> {
             <h1>Learn About the Model</h1>
             
             <h3> The model we have used to fit and simulate the data is called an SIRD model. SIRD stands for Susceptible, Infected, Recovered and Deceased and is a standard epidemic model (note that N is the total population and is assumed to be unchanging). This model has been chosen due to its relatively quick optimization time when running and due to the generally poorly compiled COVID-19 data sets that do not contain the statistics necessary
-            for more complicated models. Mathematically, the SIRD model is represented by a system of ODEs: </h3>
+            for more complicated models. Mathematically, the SIRD model is represented by a system of ODEs: <span class="ellipsis">...</span> <span class="moreText">with the full text hidden</span> <a class="more" href="#">read more</a></h3>
           </div>
           
            <div className="teacher-image-div">
