@@ -28,9 +28,6 @@ def check_existence(uid,file_name):
                 
                 return formatted_data
     except:
-<<<<<<< HEAD
-        return False
-=======
         return []
 
 if __name__ == "__main__": #Just testing to see if it works, this won't run otherwise
@@ -43,4 +40,3 @@ if __name__ == "__main__": #Just testing to see if it works, this won't run othe
             print(temp)
             break
         print("couldn't find")
->>>>>>> 24bf3ea6aae62d69b3439328b2fafcc14f90aeaa
