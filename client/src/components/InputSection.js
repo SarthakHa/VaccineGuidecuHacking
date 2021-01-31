@@ -223,6 +223,7 @@ const InputSection= ({userID,simulateClick})=>{
         <FormControl className={classes.formControl}>
             <InputLabel id="demo-simple-select-label">Vaccine</InputLabel>
             <Select
+            required
             labelId="demo-simple-select-label"
             id="demo-simple-select"
             value={vaccineSelected}

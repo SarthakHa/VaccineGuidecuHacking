@@ -5,19 +5,19 @@
   height: 100vh;
   background-color: RGB(235, 247, 246);
   opacity: 1;
-	animation-name: fadeInOpacity;
-	animation-iteration-count: 1;
-	animation-timing-function: ease-in;
-	animation-duration: 1.2s;
+  animation-name: fadeInOpacity;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+  animation-duration: 1.2s;
 }
 
 @keyframes fadeInOpacity {
-	0% {
-		opacity: 0;
-	}
-	100% {
-		opacity: 1;
-	}
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .main-grid-container {
@@ -242,7 +242,7 @@
   font-weight: 400;
 }
 
-.third-grid-container .text .moreText{
+.third-grid-container .text .moreText {
   display: none;
 }
 
@@ -294,4 +294,13 @@
   font-weight: 500;
   margin-bottom: 5vh;
   margin-left: 8vh;
+}
+.loader h2 {
+  color: black;
+  font-family: "Montserrat", Helvetica, Arial, serif;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 800;
+  margin-bottom: 5vh;
+  margin-left: -8vh;
 }
