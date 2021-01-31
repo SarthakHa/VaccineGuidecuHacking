@@ -19,6 +19,7 @@ const App = ()=> {
   const scrollSelectionDiv =createRef();
   const scrollHomeDiv =createRef();
   const scrollModalDiv =createRef();
+  const scrollLoadingDiv =createRef();
 
   const scrollSelectionDivHandler = () => {
     scrollSelectionDiv.current.scrollIntoView({ behavior: "smooth" });
@@ -28,6 +29,10 @@ const App = ()=> {
   };
   const scrollModalDivHandler = () => {
     scrollModalDiv.current.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const scrollLoadingDivHandler = () => {
+    scrollLoadingDiv.current.scrollIntoView({ behavior: "smooth" });
   };
 
     const handleSimulateClick=()=>{
@@ -73,7 +78,7 @@ const App = ()=> {
           <h1 className="instruction-text">Instruction</h1>
           <h3>Select either countries or states/provinces. Make your selection of places and then enter: the number of vaccines allocated per day, the number of days over which you would like the simulation to run, and the specific vaccine you want to use (this changes the vaccine’s effectiveness according to the percentage stated). Let’s save some lives!</h3>
           <div className="input-section">
-            <InputSection userID={userID} simulateClick={handleSimulateClick}/>
+            <InputSection userID={userID} simulateClick={handleSimulateClick} scrollLoadingDivHandler ={scrollLoadingDivHandler} />
           </div>
         </div>
         <div className="warning-div">
