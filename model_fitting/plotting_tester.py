@@ -4,7 +4,8 @@ import matplotlib
 matplotlib.use("TKAGG")
 
 """
-This file is not called anywhere else. This is just used to plot our results when provided with a .npy file of the format: 
+This file is not called anywhere else. This is just used to plot our results when provided with a .npy file of the format 
+{'policy_comparision', 'infected_ratio', 'population_ratio', 'learned_policy', 'no_vaccine', 'learned_policy_actions'}.
 """
 
 def policy_compare_plot():
