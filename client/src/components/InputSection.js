@@ -149,14 +149,12 @@ const InputSection= ()=>{
             'Content-Type':'application/json'
           },
           body: JSON.stringify(data)
+        }).then(function(response){
+            return response.json();
+        }).then(function(data){
+            console.log("data from server: ",data)
         })
-        .then(response => response.json())
-        .then(data => {
-        console.log('Success:', data);
-        })
-        .catch((error) => {
-        console.error('Error:', error);
-        });
+        
 
       
         
