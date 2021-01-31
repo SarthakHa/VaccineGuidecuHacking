@@ -7,6 +7,7 @@ from data_formatting import clean_data
 from train_model import train_agent
 from env import CustomEnv
 from data_from_policy import data_from_policy
+from evaluate_model import rewards_from_policy
 
 """
 This file is used to call all our functions that we want at once. This saves the server having to call things from different places.
@@ -54,7 +55,12 @@ def run(countries,states,steps,numbvaccines,efficacy,pathID,iterations=100):
     train_agent(env,0.0003,iterations,master_path+"/user_data/"+str(pathID))
     print("\n Training Complete \n")
     
-    model_path = master_path+"/user_data/"+str(pathID) +"/best_model"
+    model_path = master_path+"/user_data/"+str(pathID) +"/best_model" #Defining the model path
+    
+    #Evaluate the model
+    all_rewards = rewards_from_policy(env,numbvaccines,steps,efficacy,model_path)
+    print("All Rewards Data")
+    
     #Get data from policies
     data = data_from_policy(env,model_path)
     np.save(master_path+"/user_data/"+str(pathID)+"/policy_data.npy",data)
