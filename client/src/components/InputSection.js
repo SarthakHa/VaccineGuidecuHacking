@@ -252,7 +252,7 @@ const InputSection= ({userID,scrollLoadingDivHandler,setDataHandler,setContriesH
         <TextField
           required
           id="standard-number"
-          label="Number of steps (from 1-180)"
+          label="Number of days (from 1-180)"
           type="number"
           onChange={e=>setNumberOfSteps(e.target.value)}
           value={numberOfSteps}
