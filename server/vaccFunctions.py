@@ -1,6 +1,6 @@
 from flask import Blueprint, request, jsonify
 import ssl
-from client_functions.py import send_request
+from client_functions import send_request
 from urllib.request import urlretrieve
 import tempfile
 import shutil
@@ -17,7 +17,7 @@ def returnTwelve():
 @VaccFunctions.route("/test", methods=['POST'])
 def testReq():
     req_data = request.get_json()
-    data = req_data["countries"]
+    data = req_data["Countries"]
     return jsonify(data)
 
 @VaccFunctions.route("/vaccFunctions/check", methods=['POST'])
@@ -26,21 +26,7 @@ def check():
     req_data = request.get_json()
     efficacy = 0
     vaccine = req_data["Vaccine"]
-    vaccine = vaccine[0:3]
-    if vaccine == "Comi":
-        efficacy = 95.0
-    elif vaccine == "mRNA":
-        efficacy = 94.1
-    elif vaccine == "Coro":
-        efficacy = 78.0
-    elif vaccine == "AZD1":
-        efficacy = 70.4
-    elif vaccine == "Sput":
-        efficacy = 94.1
-    #elif vaccine == "BBIB":
-        #efficacy = 79.3
-    else:
-        return jsonify({"error": "Vaccine name not valid."})
+    efficacy = vaccine
     if req_data["numDays"] < 1 or req_data["numDays"] > 180:
         return jsonify({"error": "Number of days not valid."})
     if req_data["numVaccs"] < 0 or req_data["numVaccs"] > 20000000:
