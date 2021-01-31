@@ -350,7 +350,7 @@
   grid-template-rows: 0.5fr 3.5fr 2fr 2fr;
   background-color: RGB(235, 247, 246);
   height: 100vh;
-  margin-top: -65vh;
+  margin-top: -70vh;
 }
 
 .fourth-grid-container .simulationtext h1 {
@@ -367,6 +367,8 @@
   font-size: 1.1rem;
   font-style: normal;
   font-weight: 500;
+  line-height: 1.8;
+  z-index: 9998;
 }
 
 .fourth-grid-container .simulationtext {
