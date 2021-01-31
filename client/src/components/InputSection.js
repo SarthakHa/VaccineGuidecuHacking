@@ -116,6 +116,8 @@ const InputSection= ({userID,simulateClick})=>{
     }
 
     const onSubmit=async()=>{
+
+      if(selectCountries === false && selectStates === false) return;
         
         
         var data = new Object()
@@ -127,15 +129,26 @@ const InputSection= ({userID,simulateClick})=>{
 
         if(states.length ===0){
           data.States = ""
-        }else{
+        }
+        else{
           data.States=states
         }
 
-        if(currentCountry.length ===0){
-          //data.Countries = new Array();
-        }else{
+        if(states.length <3 && selectStates === true){
+          alert("Selected states have to be more than 3")
+          return;
+        }
+
+        
+        if(countries.length <1){
           data.Countries = new Array()
           data.Countries[0] = currentCountry
+        }
+
+
+        if(countries.length < 3 && selectCountries === true){
+          alert("Selected contries have to be more than 3")
+          return;
         }
     
         data.numDays = parseInt(numberOfSteps) 
@@ -146,6 +159,7 @@ const InputSection= ({userID,simulateClick})=>{
        
         console.log("data",data)
         simulateClick()
+        alert("Data sent")
       
         fetch('/vaccFunctions/check',{
           method:'POST',

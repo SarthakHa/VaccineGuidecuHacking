@@ -148,7 +148,7 @@
 .instruction h3 {
   color: black;
   font-family: "Montserrat", Helvetica, Arial, serif;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 500;
 }
@@ -157,7 +157,7 @@
   grid-column: 1/4;
   grid-row: 4/4;
   text-align: center;
-  margin-top: 10vh;
+  margin-top: 30vh;
   margin-left: 14vw;
   margin-right: 14vw;
 }
@@ -261,4 +261,19 @@
 .display-section-div {
   grid-row: 2/4;
   grid-column: 1/4;
+}
+
+.loader {
+  grid-row: 2/4;
+  grid-column: 2/3;
+}
+
+.loader h1 {
+  color: black;
+  font-family: "Montserrat", Helvetica, Arial, serif;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 500;
+  margin-bottom: 5vh;
+  margin-left: 8vh;
 }
