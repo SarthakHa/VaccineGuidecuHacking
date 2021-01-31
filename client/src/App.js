@@ -4,6 +4,7 @@ import InputSection from './components/InputSection'
 import WorldIcon from '@material-ui/icons/Public';
 import LocationCityIcon from '@material-ui/icons/LocationCity';
 import DisplaySection from './components/DisplaySection'
+import PacmanLoader from "react-spinners/PacmanLoader";
 
 import Button from '@material-ui/core/Button'
 import './App.css';
@@ -89,7 +90,11 @@ const App = ()=> {
       {simulateClick? ( <div className="chart-grid-container">
       {readyToDisplay? ( <div className="display-section-div">
           <DisplaySection data={data} countries={contries}/>
-          </div>): <div></div>}
+          </div>): 
+            <div className="loader">
+              <h1>Simulating...</h1>
+             <PacmanLoader  size={150} color={"yellow"} loading={!readyToDisplay} />
+            </div>}
       </div> ): null}
       
       <div className="third-grid-container" ref={scrollModalDiv}>
