@@ -5,10 +5,6 @@ import {Pie} from 'react-chartjs-2'
 
 const Chart =({record,countries}) =>{
     
-    const onClickEvent = (event,element) =>{
-       
-       //console.log("index",index)
-    }
     return (
     <div>
        <Pie

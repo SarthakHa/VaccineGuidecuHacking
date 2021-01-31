@@ -5,10 +5,6 @@ import {Bar} from 'react-chartjs-2'
 
 const BarChart =({policyComparison,policyNames}) =>{
     
-    const onClickEvent = (event,element) =>{
-       
-       //console.log("index",index)
-    }
     return (
     <div>
        <Bar

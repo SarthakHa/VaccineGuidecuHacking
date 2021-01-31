@@ -111,14 +111,14 @@ const App = ()=> {
           <h1 className="instruction-text">Instruction</h1>
           <h3>Select either countries or states/provinces. Make your selection of places and then enter: the number of vaccines allocated per day, the number of days over which you would like the simulation to run, and the specific vaccine you want to use (this changes the vaccine’s effectiveness according to the percentage stated). Let’s save some lives!</h3>
           <div className="input-section">
-            <InputSection userID={userID} setDataHandler={setDataHandler} setContriesHandler={setContriesHandler} setTBLinkHandler={setTBLinkHandler} setReadyToDisplayHandler={setReadyToDisplayHandler} setPolicyNamesHandler={setPolicyNamesHandler}  setComparisonsHandler={setComparisonsHandler} simulateClick={handleSimulateClick} scrollLoadingDivHandler ={scrollLoadingDivHandler} />
+            <InputSection userID={userID} scrollLoadingDivHandler={scrollLoadingDivHandler} setDataHandler={setDataHandler} setContriesHandler={setContriesHandler} setTBLinkHandler={setTBLinkHandler} setReadyToDisplayHandler={setReadyToDisplayHandler} setPolicyNamesHandler={setPolicyNamesHandler}  setComparisonsHandler={setComparisonsHandler} simulateClick={handleSimulateClick} scrollLoadingDivHandler ={scrollLoadingDivHandler} />
           </div>
         </div>
         <div className="warning-div">
           <h1 className="warning-word">Warning</h1>
           <h2 className="warning-text"> Depending on the data for the places chosen, the initial parameter fitting can take up to <strong>1 minute per place</strong>. Choosing fewer places is a better method to get quicker results... </h2>
         </div>
-          <div className="cloud-footer-div-second">
+          <div className="cloud-footer-div-second" ref={scrollLoadingDiv}>
             <img className="cloud-image" src="https://cdn.animaapp.com/projects/6015a5662fef2ded030dfd20/releases/6015af349a9b7cfb373827ee/img/vector@1x.svg"/>
             <img className="cloud-image" src="https://cdn.animaapp.com/projects/6015a5662fef2ded030dfd20/releases/6015af349a9b7cfb373827ee/img/vector@1x.svg"/>
             <img className="cloud-image" src="https://cdn.animaapp.com/projects/6015a5662fef2ded030dfd20/releases/6015af349a9b7cfb373827ee/img/vector@1x.svg"/> 
@@ -132,7 +132,7 @@ const App = ()=> {
           </div>): 
             <div className="loader">
               <h1>Simulating...</h1>
-               <a href="`${TBLink}`" >Watch the model train!</a>
+               Watch the model train! {TBLink}
               <h2>This could take hours to simulate.</h2>
              <PacmanLoader  size={150} color="#6c63ff" loading={!readyToDisplay} />
               

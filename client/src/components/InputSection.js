@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
   }));
 
 
-const InputSection= ({userID,setDataHandler,setContriesHandler,setTBLinkHandler,setReadyToDisplayHandler, setPolicyNamesHandler,setComparisonsHandler,simulateClick})=>{
+const InputSection= ({userID,scrollLoadingDivHandler,setDataHandler,setContriesHandler,setTBLinkHandler,setReadyToDisplayHandler, setPolicyNamesHandler,setComparisonsHandler,simulateClick})=>{
     const classes = useStyles();
     const [selectCountries,setSelectContries]= useState(false);
     const [selectStates,setSelectStates]= useState(false);
@@ -188,6 +188,7 @@ const InputSection= ({userID,setDataHandler,setContriesHandler,setTBLinkHandler,
         })
         .catch((error) => {
         console.error('Error:', error);
+        alert("Something went wrong. Please refresh the page.")
         });
 
         var graphData= new Object();
@@ -218,8 +219,11 @@ const InputSection= ({userID,setDataHandler,setContriesHandler,setTBLinkHandler,
           })
           .catch((error) => {
           console.error('Error:', error);
+          alert("Something went wrong. Please refresh the page.")
           });
         }
+
+        scrollLoadingDivHandler()
 
 
         
