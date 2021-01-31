@@ -160,6 +160,7 @@ const InputSection= ({userID,simulateClick})=>{
         console.log("data",data)
         simulateClick()
         alert("Data sent")
+        //scrollLoadingDivHandler()
       
         fetch('/vaccFunctions/check',{
           method:'POST',
