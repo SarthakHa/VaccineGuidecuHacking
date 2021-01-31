@@ -20,7 +20,7 @@ def testReq():
     return jsonify({"test": 12})
 
 @VaccFunctions.route("/vaccFunctions/check", methods=['POST'])
-def checkFunc():
+def checkInitial():
     #UserID, Countries, States, numDays, Vaccine, Efficacy, numVaccs, numIterations
     req_data = request.get_json()
     efficacy = 0
@@ -39,5 +39,16 @@ def checkFunc():
     if req_data["numVaccs"] < 0 or req_data["numVaccs"] > 20000000:
         return jsonify({"error": "Number of vaccines not valid."})
     iterations = 1000 #Default value
-    html = send_request(req_data["Countries"], states, req_data["numVaccs"], efficacy, req_data["numDays"], iterations, req_data["UserID"])
+    port_no = send_request(req_data["Countries"], states, req_data["numVaccs"], efficacy, req_data["numDays"], iterations, req_data["UserID"])
+    html = "http://128.2.178.158:" + str(port_no)
     return jsonify({"url": html})
+
+@VaccFunctions.route("/vaccFunctions/continualCheck", methods=["POST"])
+def continualCheck():
+    req_data = request.get_json()
+    uid = req_data["UserID"]
+    while True:
+        time.sleep(5)
+        data = check_existence(uid, "policy_data.npy")
+        if len(data) != 0:
+            return jsonify(data)
