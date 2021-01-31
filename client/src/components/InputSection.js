@@ -169,7 +169,7 @@ const InputSection= ({userID,scrollLoadingDivHandler,setDataHandler,setContriesH
         console.log("data",data)
         simulateClick(true)
         alert("Starting simulation")
-        scrollLoadingDivHandler()
+        
         //scrollLoadingDivHandler()
       
         var serverResponse = {}
