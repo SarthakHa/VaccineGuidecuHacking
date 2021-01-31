@@ -18,7 +18,9 @@ SIRD stands for Susceptible, Infected, Recovered and Deceased and is a standard 
 <img src="https://render.githubusercontent.com/render/math?math=dR/dt = \gamma I(t)">
 <img src="https://render.githubusercontent.com/render/math?math=dD/dt = \alpha I(t)">
 
-We use Covsirphy's fitting function to fit the data and find the parameters using regression statistics. However, before we fit, we must recognise that our parameters are not gonna remain constant over time as quarantine measures changes, air traffic changes and so on. Therefore, we first split our data up into regions called “Phases”. Covsirphy is used to describe the different phases when the parameters are changing (using S-R trend analysis) and find the optimal parameter values within these phases. More detail can be found on our website! Once we find the parameters, we then feed this into our learning protocol that learns the best method for providing vaccines to each place in order to **minimise deaths**.
+We use Covsirphy's fitting function to fit the data and find the parameters using regression statistics. However, before we fit, we must recognise that our parameters are not gonna remain constant over time as quarantine measures changes, air traffic changes and so on. Therefore, we first split our data up into regions called “Phases”. Covsirphy is used to describe the different phases when the parameters are changing (using S-R trend analysis) and find the optimal parameter values within these phases. More detail can be found on our website! 
+
+After that we wrap up each of the learned models into a larger environment that is akin to a markov decision process (MDP) where on each stage the action is to choose a distribution for the vaccines being given that day. We do this by making a custom OpenAI gym environment using the parameters we calculated before to model the transition function for the MDP.This is now a reinforcement learning problem which we train our agent on using the Proximal Policy Optimization. Our agents policy is given by a neural network of 2 fully connected layers of 5 units followed by a softmax function for the output. 
 
 Results are given to the user as:
 
@@ -32,6 +34,12 @@ Guide Vaccine aims to provide real world advice to government officials about ho
 
 ## Limitations
 The approach used is not the best solution yet, since our proposed distribution only works as well as the model for the environment we made, which makes many assumptions about the data produced by the governments as well as how the vaccine will reduce death rates. We made a few assumptions in our approach, namely that there are no asymptomatic cases and that the vaccine is instantly and randomly distributed across demographics, not prioritised to certain patients. These assumptions can be relaxed once more data is found that predicts the spread of COVID-19 better, as well as the effects of prioritised vaccinations on certain demographics.
+
+## Tips for training model
+In case someone wants to replicate our work and train their own models in a more granular way using our code, here are some tips we identified along the way:
+
+1. Train for around atleast 200k - 300k iterations to get good results that surpass naive stratergies like distributing based off population 
+2. Need to have softmax as the output layer for the policy function, otherwise training dies as the output is a distribution
 
 ## Future Work
 
