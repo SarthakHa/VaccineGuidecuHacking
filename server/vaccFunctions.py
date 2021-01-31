@@ -31,7 +31,7 @@ def check():
         if country == "South Africa":
             country = "SA"
         if country == "United States":
-            country = "US"
+            country = "USA"
     if len(countries) < 3:
         return jsonify({"error": "Selected fewer countries."})
     #states = req_data["States"]
