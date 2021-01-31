@@ -17,8 +17,7 @@ def returnTwelve():
 @VaccFunctions.route("/test", methods=['POST'])
 def testReq():
     req_data = request.get_json()
-    data = req_data["Countries"]
-    return jsonify(data)
+    return jsonify({"test": 12})
 
 @VaccFunctions.route("/vaccFunctions/check", methods=['POST'])
 def check():
@@ -27,10 +26,13 @@ def check():
     efficacy = 0
     vaccine = req_data["Vaccine"]
     efficacy = vaccine
+    states = req_data["States"]
+    if states == "null":
+        states = []
     if req_data["numDays"] < 1 or req_data["numDays"] > 180:
         return jsonify({"error": "Number of days not valid."})
     if req_data["numVaccs"] < 0 or req_data["numVaccs"] > 20000000:
         return jsonify({"error": "Number of vaccines not valid."})
     iterations = 1000 #Default value
-    html = send_request(req_data["Countries"], req_data["States"], req_data["numVaccs"], efficacy, req_data["numDays"], iterations, req_data["UserID"])
-    return jsonify(html)
+    html = send_request(req_data["Countries"], states, req_data["numVaccs"], efficacy, req_data["numDays"], iterations, req_data["UserID"])
+    return jsonify({"url": html})
