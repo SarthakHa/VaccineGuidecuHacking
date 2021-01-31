@@ -17,10 +17,11 @@ def returnTwelve():
 def testReq():
     req_data = request.get_json()
     data = req_data["countries"]
-    return jsonify({"hello": 12})
+    return jsonify(data)
 
 @VaccFunctions.route("/vaccFunctions/check", methods=['POST'])
 def check():
+    #UserID, Countries, States, numDays, Vaccine, Efficacy, numVaccs, numIterations
     req_data = request.get_json()
     data = req_data["ID"]
     return jsonify({"ID": data})
