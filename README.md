@@ -40,6 +40,9 @@ The approach used is not the best solution yet, since our proposed distribution 
 - Improve the efficiency of training. 
 - Fix general UI bugs.
 
+## Try it Out!
+Check the [Guide Vaccine](https://vaccineguide.herokuapp.com/) website out!
+
 ## Installing dependencies
 
 The basic prerequisites for running the repo are:
