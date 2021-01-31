@@ -92,7 +92,7 @@
 .second-grid-container {
   display: grid;
   grid-template-columns: 1.3fr 1.8fr;
-  grid-template-rows: 1fr 3fr 3fr 2fr;
+  grid-template-rows: 1fr 3fr 3fr 3fr 1fr;
   background-color: RGB(235, 247, 246);
   height: 100vh;
 }
@@ -129,8 +129,7 @@
   grid-column: 1/4;
   grid-row: 4/4;
   text-align: center;
-  margin-top: 0px;
-  margin-bottom: 15vh;
+  margin-top: 10vh;
   margin-left: 14vw;
   margin-right: 14vw;
 }
@@ -138,7 +137,7 @@
 .warning-div .warning-word {
   color: red;
   font-family: "Montserrat", Helvetica, Arial, serif;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 600;
   letter-spacing: 0px;
 }
@@ -146,7 +145,21 @@
 .warning-div .warning-text {
   color: black;
   font-family: "Montserrat", Helvetica, Arial, serif;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 600;
-  letter-spacing: 0px;
+}
+
+.cloud-footer-div-second {
+  margin-top: 0;
+  grid-row: 5/5;
+  grid-column: 1/-1;
+}
+
+.cloud-footer-div-second img {
+  height: 20vh;
+  width: 20vw;
+  opacity: 0.8;
+  margin-top: 0px;
+  margin-left: 2rem;
+  margin-right: 2rem;
 }
