@@ -96,10 +96,9 @@ const App = ()=> {
             <div className="loader">
               <h1>Simulating...</h1>
               <h2>This will take hours to simulate.</h2>
-             <PacmanLoader  size={150} color={"yellow"} loading={!readyToDisplay} />
+             <PacmanLoader  size={150} color="#6c63ff" loading={!readyToDisplay} />
               
 
-           
             </div>}
       </div> ): null}
       
