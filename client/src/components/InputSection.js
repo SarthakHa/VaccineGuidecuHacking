@@ -138,8 +138,8 @@ const InputSection= ({userID,simulateClick})=>{
           data.Countries[0] = currentCountry
         }
     
-        data.numDays = numberOfSteps
-        data.numVaccs = numberOfVaccinePerDay
+        data.numDays = parseInt(numberOfSteps) 
+        data.numVaccs = parseInt(numberOfVaccinePerDay) 
         data.Vaccine = vaccineSelected
         data.UserID = userID
 
@@ -188,6 +188,7 @@ const InputSection= ({userID,simulateClick})=>{
           label="Number of steps (from 1-180)"
           type="number"
           onChange={e=>setNumberOfSteps(e.target.value)}
+          value={numberOfSteps}
           InputLabelProps={{
             shrink: true,
           }}
@@ -197,6 +198,7 @@ const InputSection= ({userID,simulateClick})=>{
           id="standard-number"
           label="Number of vaccines per day (0<20millions)"
           type="number"
+          value={numberOfVaccinePerDay}
           onChange={e=>setNumberOfVaccinePerDay(e.target.value)}
           InputLabelProps={{
             shrink: true,
