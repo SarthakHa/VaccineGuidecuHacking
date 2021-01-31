@@ -170,6 +170,7 @@ const InputSection= ({userID,simulateClick})=>{
         alert("Starting simulation")
         //scrollLoadingDivHandler()
       
+        var serverResponse = {}
         fetch('/vaccFunctions/check',{
           method:'POST',
           headers:{
@@ -179,11 +180,30 @@ const InputSection= ({userID,simulateClick})=>{
         })
         .then(response => response.json())
         .then(data => {
-        console.log('Success:', data);
+          serverResponse = data
+          console.log('Success:', data);
         })
         .catch((error) => {
         console.error('Error:', error);
         });
+
+        if(serverResponse !== {}){
+          fetch('/vaccFunctions/continualCheck',{
+            method:'POST',
+            headers:{
+              'Content-Type':'application/json'
+            },
+            body: JSON.stringify({"UserID":userID})
+          })
+          .then(response => response.json())
+          .then(data => {
+            console.log('Success:', data);
+          })
+          .catch((error) => {
+          console.error('Error:', error);
+          });
+        }
+
 
       
         

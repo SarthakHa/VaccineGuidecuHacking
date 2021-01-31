@@ -1,9 +1,9 @@
 import React from 'react'
-import {Pie} from 'react-chartjs-2'
+import {Bar} from 'react-chartjs-2'
 
 
 
-const Chart =({record,countries}) =>{
+const BarChart =({policyComparison,policyNames}) =>{
     
     const onClickEvent = (event,element) =>{
        
@@ -11,12 +11,12 @@ const Chart =({record,countries}) =>{
     }
     return (
     <div>
-       <Pie
+       <Bar
         data={{
-            labels:countries,
+            labels:policyNames,
             datasets: [{
                 label: '# of deaths',
-                data: record,
+                data: policyComparison,
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
@@ -36,10 +36,10 @@ const Chart =({record,countries}) =>{
         }}
        >
 
-       </Pie>
+       </Bar>
                  
     </div>
     )
 }
 
-export default Chart
+export default BarChart
