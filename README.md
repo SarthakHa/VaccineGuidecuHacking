@@ -1,3 +1,24 @@
+# Guide Vaccine
+
+While COVID-19 cases continue to rise all over the globe, many of us have grown tired of staying inside and not seeing our friends. Luckily, with recent medical advancements governments are starting to distribute vaccines that will reduce the spread of the virus. However, for large countries, such as Canada and the United States, how best do these governments allocate the limited number of vaccines within their states in order to reduce deaths? Guide Vaccine is a website that finds the ***optimal vaccine distribution across a list of user selected places in order to minimise deaths using reinforcement learning***! 
+
+## How it Works
+
+The user chooses their countries (or states/provinces for a specific country), the number of vaccines they would like to allocate per day, the number of days across which the distribution will be generated and the type of vaccine (which effects the vaccine's effectiveness e.g. Pfizzer and Moderna are ~95% effective, etc.). We then use a Python library called covsirphy that automatically imports the latest COVID-19 data in order to find the parameters for our SIRD Model. 
+
+SIRD stands for Susceptible, Infected, Recovered and Deceased and is a standard epidemic model to predict the spread of viruses. The model is described by a system of differential equations and a set of parameters. We use covsirphy's fitting function to fit the data using regression statistics. Short specifics about the model can be found in the `README.md` under `model_fitting` or in greater detail on our website! Once we find the parameters, we then feed this into our learning protocol that learns the best method for providing vaccines to each place.
+
+Results are given to the user as:
+
+- A pie chart displaying the distribution of vaccines to each country over time. 
+- A line graph that will display deaths over time per country.
+- A bar plot comparing the results of different protocols to that with no vaccine.
+
+The user can also learn more about the simulation and the model used by scrolling down the page to the sections "Learn About the Model" and "Learn about the Simulation". 
+
+## Real World Impact
+Guide Vaccine aims to provide real world advice to government officials about how best to allocate their limited vaccines. Although the model used is limited as of now, given longer training time and more complicated models, the results would be more accurate and could provide real world benefit in this global time of need.
+
 ## Installing dependencies
 
 The basic prerequisites for running the repo are:
