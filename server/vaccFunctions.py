@@ -25,7 +25,6 @@ def testReq():
 @VaccFunctions.route("/vaccFunctions/check", methods=['POST'])
 def checkInitial():
     #UserID, Countries, States, numDays, Vaccine, Efficacy, numVaccs, numIterations
-    '''
     req_data = request.get_json()
     efficacy = 0
     vaccine = req_data["Vaccine"]
@@ -48,12 +47,11 @@ def checkInitial():
         return jsonify({"error": "Number of days not valid."})
     if req_data["numVaccs"] < 0 or req_data["numVaccs"] > 20000000:
         return jsonify({"error": "Number of vaccines not valid."})
-    iterations = 100 #Default value
+    iterations = 10000 #Default value
     port_no = send_request(req_data["Countries"], states, req_data["numVaccs"], efficacy, req_data["numDays"], iterations, req_data["UserID"])
     html = "http://128.2.178.158:" + str(port_no)
     return jsonify({"url": html})
-    '''
-    return jsonify({"test": "yes"})
+    #return jsonify({"test": "yes"})
 
 class NumpyEncoder(json.JSONEncoder):
     def default(self, obj):
