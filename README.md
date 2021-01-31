@@ -33,6 +33,13 @@ Guide Vaccine aims to provide real world advice to government officials about ho
 ## Limitations
 The approach used is not the best solution yet, since our proposed distribution only works as well as the model for the environment we made, which makes many assumptions about the data produced by the governments as well as how the vaccine will reduce death rates. We made a few assumptions in our approach, namely that there are no asymptomatic cases and that the vaccine is instantly and randomly distributed across demographics, not prioritized to certain patients. These assumptions can be relaxed once more data is found that predicts the spread of COVID-19 better, as well as the effects of prioritized vaccinations on certain demographics.
 
+## Future Work
+
+- Display more results from the fitting so that users are more likely to trust our results.
+- Allow the user to download a .csv file that gives the distribution of vaccines for each country per day.
+- Improve the efficiency of training. 
+- Fix general UI bugs.
+
 ## Installing dependencies
 
 The basic prerequisites for running the repo are:
