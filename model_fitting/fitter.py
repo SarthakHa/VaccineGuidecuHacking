@@ -42,7 +42,7 @@ class covsir_models:
             else:
                 snl = cs.Scenario(self.jhu_data,self.population_data,countries=self.countries[0],province=self.states[i],tau=1440)
             past_date = (datetime.datetime.now()-datetime.timedelta(days=40)).strftime("%d%b%Y")
-            snl.first_date = past_date #Defining the first date of data to be 30 days ago.
+            snl.first_date = past_date #Defining the first date of data to be 40 days ago.
             snl.trend(show_figure=False)
             snl.disable(phases=["0th"]) #Ignoring the first phase as we are starting the data at an arbitrary point.
             snl.estimate(cs.SIRD,timeout=60) #Setting max time to be a minute so that it does not run too long
