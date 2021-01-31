@@ -6,7 +6,14 @@ While COVID-19 cases continue to rise all over the globe, many of us have grown 
 
 The user chooses their countries (or states/provinces for a specific country), the number of vaccines they would like to allocate per day, the number of days across which the distribution will be generated and the type of vaccine (which effects the vaccine's effectiveness e.g. Pfizzer and Moderna are ~95% effective, etc.). We then use a Python library called covsirphy that automatically imports the latest COVID-19 data in order to find the parameters for our SIRD Model. 
 
-SIRD stands for Susceptible, Infected, Recovered and Deceased and is a standard epidemic model to predict the spread of viruses. The model is described by a system of differential equations and a set of parameters. We use covsirphy's fitting function to fit the data using regression statistics. Short specifics about the model can be found in the `README.md` under `model_fitting` or in greater detail on our website! Once we find the parameters, we then feed this into our learning protocol that learns the best method for providing vaccines to each place.
+SIRD stands for Susceptible, Infected, Recovered and Deceased and is a standard epidemic model to predict the spread of viruses. The model is described by a system of differential equations (shown below) and a set of parameters. 
+
+<img src="https://render.githubusercontent.com/render/math?math=dS/dt = -\beta \frac{S(t)I(t)}{N}">
+<img src="https://render.githubusercontent.com/render/math?math=dI/dt = \beta \frac{S(t)I(t)}{N} - (\gamma%2B\alpha)I(t)">
+<img src="https://render.githubusercontent.com/render/math?math=dR/dt = \gamma I(t)">
+<img src="https://render.githubusercontent.com/render/math?math=dD/dt = \alpha I(t)">
+
+We use covsirphy's fitting function to fit the data using regression statistics. Short specifics about the model can be found in the `README.md` under `model_fitting` or in greater detail on our website! Once we find the parameters, we then feed this into our learning protocol that learns the best method for providing vaccines to each place.
 
 Results are given to the user as:
 
