@@ -26,7 +26,7 @@ class CustomEnv(gym.Env):
         for i in range(self.num_places):
             self.places += [PlaceModel(self.initial_states[i*self.state_size_place:(i+1)*self.state_size_place],self.params[i],total_populations[i],self.vaccine_efficacy)]
 
-        self.action_space = spaces.Box(np.array([0.0]*self.num_places), np.array([1.0]*self.num_places),dtype=np.float32)
+        self.action_space = spaces.Box(np.array([0.1]*self.num_places), np.array([1.0]*self.num_places),dtype=np.float32)
         self.observation_space = spaces.Box(low=0.0, high=100000000.0,shape=(len(self.initial_states),), dtype=np.float32)
 
 

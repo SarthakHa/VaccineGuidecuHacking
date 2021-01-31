@@ -87,7 +87,8 @@ def learned_policy_reward(env,model_path):
     while not dones:
         aggregate_data(obs,results)
         action, _states = model.predict(obs)
-        actions.append(env.vaccines_per_day*(action/sum(action)))
+        actions.append((env.vaccines_per_day*(action/sum(action))).astype(int))
+        print(actions[-1])
         obs, rewards, dones, info = env.step(action)
         reward += rewards
     return reward,results,actions
@@ -114,13 +115,14 @@ def rewards_from_policy(env,model_path): #Just call this
     population_reward,data_2 = population_policy_reward(env)
     learned_reward,data_3,learned_policy_actions = learned_policy_reward(env,model_path)
     no_vaccine_reward,data_4 = no_vaccine_policy_reward(env)
-    policy_results["policy_comparision"] = [infected_reward, population_reward,learned_reward,no_vaccine_reward]
-    policy_results["infected_ratio"] = data_1
-    policy_results["population_ratio"] = data_2
+    policy_results["policy_comparison"] = [infected_reward, population_reward,learned_reward,no_vaccine_reward]
+    #policy_results["infected_ratio"] = data_1
+    #policy_results["population_ratio"] = data_2
     policy_results["learned_policy"] = data_3
-    policy_results["no_vaccine"] = data_4
-    policy_results["learned_policy_actions"] = learned_policy_actions
+    #policy_results["no_vaccine"] = data_4
+    policy_results["learned_policy_actions"] = np.asarray(learned_policy_actions)
     policy_results["place_names"] = env.place_names
+    policy_results["policy_names"] = ["Infected Ratio Policy", "Population Ratio Policy", "Learned Policy", "No Policy"]
     return policy_results
 
 def visualize_results(policy_results):

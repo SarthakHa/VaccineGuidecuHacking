@@ -4,7 +4,7 @@ import os,subprocess
 import copy
 import numpy as np
 from stable_baselines.common.env_checker import check_env
-from stable_baselines.common.policies import MlpLnLstmPolicy
+from stable_baselines.common.policies import MlpPolicy
 from stable_baselines.common import make_vec_env
 from stable_baselines import PPO2
 from data_formatting import clean_data
@@ -45,15 +45,15 @@ def train_agent(env,learning_rate,total_episodes,path,port):
     cb = SaveBest(100, path=path)
     def _make_env():
         return copy.deepcopy(env)
-    train_env = SubprocVecEnv([_make_env for _ in range(4)])
-    train_env = VecNormalize(train_env, norm_obs=True, norm_reward=False)
+    #train_env = SubprocVecEnv([_make_env for _ in range(4)])
+    #train_env = VecNormalize(train_env, norm_obs=True, norm_reward=False)
     env = Monitor(env, path)
 
     tensorboard_path = "."+path+"/log/"
-    #policy_kwargs = dict(net_arch=[5,5,5],act_fun=tf.nn.softmax)
+    policy_kwargs = dict(net_arch=[5,5])
 
 
-    model = PPO2(MlpLnLstmPolicy, train_env,tensorboard_log=tensorboard_path,gamma=1.0,nminibatches =2)
+    model = PPO2(MlpPolicy, env,policy_kwargs=policy_kwargs,tensorboard_log=tensorboard_path,gamma=1.0,nminibatches =2)
 
     cmd_str = "tensorboard --logdir " + tensorboard_path + " --port=" + str(port)
     print(cmd_str)
