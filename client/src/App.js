@@ -198,7 +198,7 @@ const App = ()=> {
             </div>
 
             <div className="vr-image-div">
-              <img src="https://cdn.animaapp.com/projects/6015a5662fef2ded030dfd20/releases/6015b1d432dc2026365d46b6/img/vr@1x.svg"></img>
+              <img src="https://cdn.animaapp.com/projects/6015a5662fef2ded030dfd20/releases/6015b1d432dc2026365d46b6/img/vr@1x.svg" height="auto" width="500vw"></img>
            </div>
       </div>
       
