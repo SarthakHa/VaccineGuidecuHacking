@@ -80,6 +80,6 @@ class covsir_models:
         return [populations, pars, state]
         
 if __name__ == "__main__": #Just for testing
-    test = covsir_models(["United States", "Canada", "United Kingdom", "Germany", "Japan"],None)#["Kentucky", "Texas", "Arizona", "Michigan", "Colorado"])
+    test = covsir_models(["United States"],["Kentucky", "Texas", "Arizona", "Michigan", "Colorado"])#["United States", "Canada", "United Kingdom", "Germany", "Japan"]
     results = test.calling()
     print(results)
