@@ -16,7 +16,7 @@
 .main {
   grid-column: 1/2;
   grid-row: 2/3;
-  margin-left: 8rem;
+  margin-left: 13rem;
 }
 
 .navbar {
@@ -35,6 +35,7 @@
 .image-div {
   grid-column: 2/3;
   grid-row: 2/3;
+  margin-left: 8vh;
 }
 
 .main h1 {
@@ -108,7 +109,9 @@
   margin-right: 10rem;
 }
 
-.instruction h1 {
+.instruction .instruction-text {
+  color: black;
+  font-size: 1.3rem;
   font-family: "Montserrat", Helvetica, Arial, serif;
   font-style: normal;
   font-weight: 600;
@@ -117,7 +120,7 @@
 .instruction h3 {
   color: black;
   font-family: "Montserrat", Helvetica, Arial, serif;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-style: normal;
   font-weight: 500;
 }

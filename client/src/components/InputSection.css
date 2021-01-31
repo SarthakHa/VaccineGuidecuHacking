@@ -1,0 +1,34 @@
+.simulate-btn-div {
+  text-align: right;
+  margin-top: 3vh;
+}
+
+.btn-div {
+  text-align: center;
+  margin-top: 3vh;
+}
+
+.btn-div Button {
+  height: 3vw;
+  background-color: rgba(108, 99, 255, 1);
+}
+
+.simulate-btn-div Button {
+  width: 10vw;
+  height: 5vh;
+  background-image: linear-gradient(
+    to right,
+    rgb(252, 182, 172),
+    rgba(255, 125, 107, 1)
+  );
+  margin-right: 2vw;
+  border-radius: 20px;
+}
+
+h1 {
+  color: white;
+  font-family: "Montserrat", Helvetica, Arial, serif;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 700;
+}

@@ -1,7 +1,19 @@
 import React,{Fragment,useState,useEffect,createRef} from 'react'
+import { Multiselect } from 'multiselect-react-dropdown';
+import InputSection from './components/InputSection'
+import WorldIcon from '@material-ui/icons/Public';
+import LocationCityIcon from '@material-ui/icons/LocationCity';
+
+import Button from '@material-ui/core/Button'
 import './App.css';
 
 const App = ()=> {
+
+  const toggleCountries =() =>{
+    console.log("toggleCountries clicked")
+  }
+
+
 
   return (
     <div className="background">
@@ -33,9 +45,11 @@ const App = ()=> {
       <div className="second-grid-container">
         <div className="second-image-div"> <img src="https://cdn.animaapp.com/projects/6015a5662fef2ded030dfd20/releases/6015af349a9b7cfb373827ee/img/undraw-data-input-fxv2-2@1x.png"></img>  </div>
         <div className="instruction">
-          <h1>Instruction</h1>
+          <h1 className="instruction-text">Instruction</h1>
           <h3>Select either countries or states/provinces. Make your selection of places and then enter: the number of vaccines allocated per day, the number of days over which you would like the simulation to run, and the specific vaccine you want to use (this changes the vaccine’s effectiveness according to the percentage stated). Let’s save some lives!</h3>
-
+          <div className="input-section">
+            <InputSection/>
+          </div>
         </div>
       </div>
 
