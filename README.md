@@ -1,6 +1,11 @@
-# Vaccine Guide
+# Guide Vaccine
 
-While COVID-19 cases continue to rise all over the globe, many of us have grown tired of staying inside and not seeing our friends. Luckily, with recent medical advancements governments are starting to distribute vaccines that will reduce the spread of the virus. However, for large countries, such as Canada and the United States, how best do these governments allocate the limited number of vaccines within their states in order to reduce deaths? Guide Vaccine is a website that finds the ***optimal vaccine distribution across a list of user selected places in order to minimise deaths using reinforcement learning***! 
+While COVID-19 cases continue to rise all over the globe, many of us have grown tired of staying inside and not seeing our friends. Luckily, with recent medical advancements governments are starting to distribute vaccines that will reduce the spread of the virus. However, for large countries, such as Canada and the United States, how best do these governments allocate the limited number of vaccines within their states in order to reduce deaths? Guide Vaccine is a website that finds the ***optimal vaccine distribution across a list of user selected places in order to minimise deaths using reinforcement learning***!
+
+## The Problem
+Large countries face the humongous task of distributing a limited number of vaccines across their population. As such, it is important to make sure that those vaccines are being given to the areas that need it the most, and will provide the largest impact. [Research done](https://pubmed.ncbi.nlm.nih.gov/33356933/) in partnership with the [Bill and Melinda Gates Foundation](https://www.mobs-lab.org/uploads/6/7/8/7/6787877/global_vax.pdf) has shown that our current distribution processes **have not been equitable** across countries that need it the most, rather it has been dominated by rich countries who have managed to outbid others. Even in rich countries, the administration and distribution of vaccines has been prioritised in wealthier regions compared to poorer ones. 
+
+Defining what an equitable distribution of vaccines is rather hard, but we chose to define it as the distribution that would lead to the fewest deaths. Our motivation for this project was if given a list of places and a limited number of vaccines, could we use AI to predict what distribution of vaccines per day would lead to the fewest deaths? In short, we can! And that is how ***Guide Vaccine*** was born.
 
 ## How it Works
 
@@ -13,15 +18,14 @@ SIRD stands for Susceptible, Infected, Recovered and Deceased and is a standard 
 <img src="https://render.githubusercontent.com/render/math?math=dR/dt = \gamma I(t)">
 <img src="https://render.githubusercontent.com/render/math?math=dD/dt = \alpha I(t)">
 
-We use covsirphy's fitting function to fit the data and find the parameters using regression statistics. However, before we fit, we must recognise that our parameters are not gonna remain constant over time as quarantine measures changes, air traffic changes and so on. Therefore, we first split our data up into regions called “Phases”. Covsirphy is used to describe the different phases when the parameters are changing (using S-R trend analysis) and find the optimal parameter values within these phases. More detail can be found on our website! Once we find the parameters, we then feed this into our learning protocol that learns the best method for providing vaccines to each place.
+We use covsirphy's fitting function to fit the data and find the parameters using regression statistics. However, before we fit, we must recognise that our parameters are not gonna remain constant over time as quarantine measures changes, air traffic changes and so on. Therefore, we first split our data up into regions called “Phases”. Covsirphy is used to describe the different phases when the parameters are changing (using S-R trend analysis) and find the optimal parameter values within these phases. More detail can be found on our website! Once we find the parameters, we then feed this into our learning protocol that learns the best method for providing vaccines to each place in order to **minimize deaths**.
 
 Results are given to the user as:
 
-- A pie chart displaying the distribution of vaccines to each country over time. 
-- A line graph that will display deaths over time per country.
-- A bar plot comparing the results of different protocols to that with no vaccine.
+- A **pie chart** displaying the distribution of vaccines to each country over time. 
+- A **bar plot** comparing the results of different protocols to that with no vaccine.
 
-The user can also learn more about the simulation and the model used by scrolling down the page to the sections "Learn About the Model" and "Learn about the Simulation". It is important to note that the model assumes that people, once infected, can only recover or pass away according to their proportionality coefficients, &gamma; and &alpha;, respectively. Furthermore, the model ignores demographic differences, air traffic, transportation time etc. Our model provides the building blocks for future models that can improve as we acquire more data and learn more about COVID-19. On this medical journey, data science provides a realistic path towards a quicker and less costly, victory.
+The user can also learn more about the simulation and the model used by scrolling down the page to the sections "Learn About the Model" and "Learn about the Simulation". It is important to note that the model assumes that people, once infected, can only recover or pass away according to their proportionality coefficients, &gamma; and &alpha;, respectively. Furthermore, the model ignores demographic differences, air traffic, transportation time etc. However, our model provides the building blocks for future models to improve as we acquire more data and learn more about COVID-19. As well all take part in this medical journey, it is important to consider the fact that data science provides a realistic path towards a quicker and less costly, victory.
 
 ## Real World Impact
 Guide Vaccine aims to provide real world advice to government officials about how best to allocate their limited vaccines. Although the model used is limited as of now, given longer training time and more complicated models, the results would be more accurate and could provide real world benefit in this global time of need. Our solution is very modular which means that these assumptions only impact the environment we make for the AI agent and that the training will essentially remain the same. This makes it very easy for us to update our model in the future as more data becomes available, making our product adaptable and versatile.
@@ -106,7 +110,7 @@ If you’ve never used Heroku before, visit their website and create an account.
 `brew tap heroku/brew && brew install heroku`
 `heroku login`
 
-Now that the cli is installed, we’ll create a Heroku app and push the site online. The Heroku CLI should provide a URL that you can visit to view your site online. In my case, the URL is https://vaccineguide.herokuapp.com/. 
+Now that the cli is installed, we’ll create a Heroku app and push the site online. The Heroku CLI should provide a URL that you can visit to view your site online. In my case, the URL is https://protected-beach-47576.herokuapp.com/. 
 
 `heroku create`
 
