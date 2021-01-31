@@ -20,7 +20,7 @@ def testReq():
     return jsonify({"test": 12})
 
 @VaccFunctions.route("/vaccFunctions/check", methods=['POST'])
-def check():
+def checkFunc():
     #UserID, Countries, States, numDays, Vaccine, Efficacy, numVaccs, numIterations
     req_data = request.get_json()
     efficacy = 0
