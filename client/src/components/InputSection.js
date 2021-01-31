@@ -126,7 +126,7 @@ const InputSection= ({userID,simulateClick})=>{
         }
 
         if(states.length ===0){
-          data.States = null
+          data.States = ""
         }else{
           data.States=states
         }

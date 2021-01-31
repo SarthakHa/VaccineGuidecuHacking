@@ -89,7 +89,7 @@ const App = ()=> {
       {simulateClick? ( <div className="chart-grid-container">
       {readyToDisplay? ( <div className="display-section-div">
           <DisplaySection data={data} countries={contries}/>
-          </div>): <div><InputSection></InputSection></div>}
+          </div>): <div></div>}
       </div> ): null}
       
       <div className="third-grid-container" ref={scrollModalDiv}>
