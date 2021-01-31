@@ -32,6 +32,7 @@ const App = ()=> {
 
   const handleSimulateClick = () =>{
     setSimulateClick(true)
+    console.log(simulateClick)
   }
 
   useEffect(() => {

@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
   }));
 
 
-const InputSection= (userID,setSimulateClick)=>{
+const InputSection= ({userID,simulateClick})=>{
     const classes = useStyles();
     const [selectCountries,setSelectContries]= useState(false);
     const [selectStates,setSelectStates]= useState(false);
@@ -146,7 +146,7 @@ const InputSection= (userID,setSimulateClick)=>{
        
         console.log("data",data)
 
-        setSimulateClick(true)
+      
         fetch('/vaccFunctions/check',{
           method:'POST',
           headers:{
