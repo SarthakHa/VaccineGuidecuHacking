@@ -179,7 +179,7 @@
 .warning-div .warning-word {
   color: red;
   font-family: "Montserrat", Helvetica, Arial, serif;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   font-weight: 600;
   letter-spacing: 0px;
 }
@@ -187,8 +187,8 @@
 .warning-div .warning-text {
   color: black;
   font-family: "Montserrat", Helvetica, Arial, serif;
-  font-size: 1.1rem;
-  font-weight: 600;
+  font-size: 1rem;
+  font-weight: 500;
 }
 
 .cloud-footer-div-second {
