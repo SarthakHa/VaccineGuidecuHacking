@@ -1,8 +1,5 @@
 import React,{Fragment,useState,useEffect,createRef} from 'react'
-import { Multiselect } from 'multiselect-react-dropdown';
 import InputSection from './components/InputSection'
-import WorldIcon from '@material-ui/icons/Public';
-import LocationCityIcon from '@material-ui/icons/LocationCity';
 import DisplaySection from './components/DisplaySection'
 import PacmanLoader from "react-spinners/PacmanLoader";
 

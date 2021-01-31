@@ -1,4 +1,4 @@
-import React,{Fragment, useState,useEffect} from 'react'
+import React,{Fragment, useState} from 'react'
 import Button from '@material-ui/core/Button'
 import WorldIcon from '@material-ui/icons/Public';
 import LocationCityIcon from '@material-ui/icons/LocationCity';
@@ -117,7 +117,10 @@ const InputSection= ({userID,simulateClick})=>{
 
     const onSubmit=async()=>{
 
-      if(selectCountries === false && selectStates === false) return;
+      if(selectCountries === false && selectStates === false){
+        alert("Please select either Contries or States/Provinces for simulation")
+        return;
+      } 
         
         
         var data = new Object()
@@ -150,6 +153,11 @@ const InputSection= ({userID,simulateClick})=>{
           alert("Selected contries have to be more than 3")
           return;
         }
+
+        if(vaccineSelected===""){
+          alert("You have to select a vaccine.")
+          return
+        }
     
         data.numDays = parseInt(numberOfSteps) 
         data.numVaccs = parseInt(numberOfVaccinePerDay) 
@@ -159,7 +167,7 @@ const InputSection= ({userID,simulateClick})=>{
        
         console.log("data",data)
         simulateClick()
-        alert("Data sent")
+        alert("Starting simulation")
         //scrollLoadingDivHandler()
       
         fetch('/vaccFunctions/check',{
@@ -223,7 +231,7 @@ const InputSection= ({userID,simulateClick})=>{
         <FormControl className={classes.formControl}>
             <InputLabel id="demo-simple-select-label">Vaccine</InputLabel>
             <Select
-            required
+          
             labelId="demo-simple-select-label"
             id="demo-simple-select"
             value={vaccineSelected}
