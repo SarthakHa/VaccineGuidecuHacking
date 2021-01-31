@@ -14,10 +14,32 @@ def data_from_policy(env,policy_path):
     """
     INPUT PARAMETERS:
     ----------------
-    env : gym.Env
+    env : gym.Env (class environment)
         The environment curated by gym
 
     policy_path : str
         The path to the file of the policy
     """
+    model = PPO2.load(policy_path)
+    actions = []
+    states = {}
+    for place in env.place_names:
+        states[place] = []
+    obs = env.reset()
+    dones = False
+    reward = 0
+    obsloop = {}
+
+    for place in env.place_names:
+        obsloop[place] = []
+
+    while not dones:
+        action, _states = model.predict(obs,deterministic=True)
     
+        actions.append(env.vaccines_per_day*(action/sum(action)))
+        obs, rewards, dones, info = env.step(action)
+        reward += rewards
+        #savedobs.append(obs.reshape((len(env.place_names),4)))
+        for place in env.place_names:
+            obsloop[place].append(obs.reshape((len(env.place_names),4))[np.where(env.place_names==place)[0]])
+    return [obsloop, actions]#Observations per day, vaccine distributions
