@@ -10,7 +10,17 @@
 
 .btn-div Button {
   height: 3vw;
-  background-color: rgba(114, 175, 204);
+  background-color: rgba(108, 99, 255, 1);
+}
+
+.btn-div Button:hover{
+  background-color: rgba(108, 99, 255, 1);
+  bottom: 1px;
+  transition: 0.3s;
+}
+
+.btn-div Button:focus{
+  background-color: rgba(108, 99, 255, 1);
 }
 
 .simulate-btn-div Button {
@@ -23,6 +33,24 @@
   );
   margin-right: 2vw;
   border-radius: 20px;
+}
+
+.simulate-btn-div Button:hover{
+  background-image: linear-gradient(
+    to right,
+    rgb(252, 182, 172),
+    rgba(255, 125, 107, 1)
+  );
+  bottom: 1px;
+  transition: 0.3s;
+}
+
+.simulate-btn-div Button:focus{
+  background-image: linear-gradient(
+    to right,
+    rgb(252, 182, 172),
+    rgba(255, 125, 107, 1)
+  );
 }
 
 h1 {

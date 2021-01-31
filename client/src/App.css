@@ -32,6 +32,14 @@
   margin: 2rem;
 }
 
+.navbar h3:hover {
+  display: inline;
+  font-family: "Montserrat", Helvetica, Arial, serif;
+  font-size: 1.1rem;
+  margin: 2rem;
+  color: rgba(240, 58, 45, 1);
+}
+
 .image-div {
   grid-column: 2/3;
   grid-row: 2/3;
@@ -56,16 +64,34 @@
   margin-right: 5rem;
 }
 
-.main button {
+.main Button {
+  height: 8vh;
+  margin-right: 2vw;
   background-image: linear-gradient(
     to right,
     rgb(252, 182, 172),
     rgba(255, 125, 107, 1)
   );
-
   border-radius: 20px;
-  display: inline-block;
   border: none;
+}
+
+.main Button:hover {
+  background-image: linear-gradient(
+    to right,
+    rgb(252, 182, 172),
+    rgba(255, 125, 107, 1)
+  );
+  bottom: 2px;
+  transition: 0.3s;
+}
+
+.main Button:focus {
+  background-image: linear-gradient(
+    to right,
+    rgb(252, 182, 172),
+    rgba(255, 125, 107, 1)
+  );
 }
 
 .main h3 {

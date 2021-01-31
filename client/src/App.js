@@ -18,7 +18,7 @@ const App = ()=> {
 
   const scrollSelectionDiv =createRef();
   const scrollHomeDiv =createRef();
-  const scrollModalDiv =createRef();
+  const scrollModelDiv =createRef();
 
   const scrollSelectionDivHandler = () => {
     scrollSelectionDiv.current.scrollIntoView({ behavior: "smooth" });
@@ -26,8 +26,8 @@ const App = ()=> {
   const scrollHomeDivHandler = () => {
     scrollHomeDiv.current.scrollIntoView({ behavior: "smooth" });
   };
-  const scrollModalDivHandler = () => {
-    scrollModalDiv.current.scrollIntoView({ behavior: "smooth" });
+  const scrollModelDivHandler = () => {
+    scrollModelDiv.current.scrollIntoView({ behavior: "smooth" });
   };
 
   const handleSimulateClick = () =>{
@@ -47,11 +47,11 @@ const App = ()=> {
          <main className="main">
          <div className="guide-vaccine"> <h1>Guide</h1><h1>Vaccine</h1></div>
          <div><h2>Find the optimal vaccine distribution across your own chosen places</h2></div>
-         <div className="choose-btn-div">  <button onClick={scrollSelectionDivHandler}> <h3>Choose your Places!</h3></button> </div>
+         <div className="choose-btn-div">  <Button onClick={scrollSelectionDivHandler}> <h3>Choose your Places!</h3></Button> </div>
          </main>
           <div className="navbar">
             <h3 onClick={scrollSelectionDivHandler}>Selection</h3>
-            <h3 onClick={scrollModalDivHandler}>The Model</h3>
+            <h3 onClick={scrollModelDivHandler}>The Model</h3>
             <h3>The Simulation</h3>
       
           </div>
@@ -94,7 +94,13 @@ const App = ()=> {
       </div> ): null}
       
 
+<<<<<<< HEAD
+      </div>
+
+      <div className="third-grid-container" ref={scrollModelDiv}>
+=======
       <div className="third-grid-container" ref={scrollModalDiv}>
+>>>>>>> 8eedd6f370e7cf2a56b01707996494579eccdb35
           <div className="text">
             <h1>Learn About the Model</h1>
             
