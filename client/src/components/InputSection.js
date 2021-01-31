@@ -236,7 +236,7 @@ const InputSection= ()=>{
             <MenuItem value={"Canada"}>Canada</MenuItem>
               </Select>
               </FormControl>
-              <div style={{width:"50%"}}>
+              <div style={{width:"100%"}}>
             {currentCountry === "United States" &&
                  <Multiselect
                  options={UnitedStatesStates} // Options to display in the dropdown
