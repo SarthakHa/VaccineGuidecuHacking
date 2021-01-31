@@ -145,7 +145,7 @@ const InputSection= ({userID,simulateClick})=>{
 
        
         console.log("data",data)
-
+        simulateClick()
       
         fetch('/vaccFunctions/check',{
           method:'POST',
