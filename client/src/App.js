@@ -125,6 +125,7 @@ const App = ()=> {
           </div>
       </div>
 
+      
       {simulateClick? ( <div className="chart-grid-container">
       {readyToDisplay? ( <div className="display-section-div">
           <DisplaySection data={data} countries={contries}/>
