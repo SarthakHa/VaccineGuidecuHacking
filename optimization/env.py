@@ -16,7 +16,10 @@ class CustomEnv(gym.Env):
         self.state_size_place = len(initial_states)//self.num_places
         self.places = []
         self.initial_states = initial_states
-        
+        self.vaccines_per_day = vaccines_per_day
+        self.vaccine_efficacy = vaccine_efficacy
+        self.place_names = place_names
+        self.total_populations = total_populations
         self.params = params
         self.max_steps = max_steps
         self.time = 0
@@ -35,6 +38,10 @@ class CustomEnv(gym.Env):
         if sum(action) != 0:
             action = action/sum(action)
         total_reward = 0
+        for i in range(self.num_places):
+            state,reward = self.places[i].step(action[i]*self.vaccines_per_day)
+            total_reward += reward
+        self.time += 1
         if self.time > self.max_steps:
             return self.current_state(),total_reward,True,dict()
         return self.current_state(),total_reward,False,dict()
