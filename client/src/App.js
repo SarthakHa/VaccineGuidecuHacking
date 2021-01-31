@@ -30,7 +30,7 @@ const App = ()=> {
     scrollModalDiv.current.scrollIntoView({ behavior: "smooth" });
   };
 
-  const handleSimulateClick = () =>{
+    const handleSimulateClick=()=>{
     setSimulateClick(true)
     console.log(simulateClick)
   }
@@ -47,7 +47,7 @@ const App = ()=> {
          <main className="main">
          <div className="guide-vaccine"> <h1>Guide</h1><h1>Vaccine</h1></div>
          <div><h2>Find the optimal vaccine distribution across your own chosen places</h2></div>
-         <div className="choose-btn-div">  <Button onClick={scrollSelectionDivHandler}> <h3>Choose your Places!</h3></Button> </div>
+         <div className="choose-btn-div">  <button onClick={scrollSelectionDivHandler}> <h3>Choose your Places!</h3></button> </div>
          </main>
           <div className="navbar">
             <h3 onClick={scrollSelectionDivHandler}>Selection</h3>
@@ -73,7 +73,7 @@ const App = ()=> {
           <h1 className="instruction-text">Instruction</h1>
           <h3>Select either countries or states/provinces. Make your selection of places and then enter: the number of vaccines allocated per day, the number of days over which you would like the simulation to run, and the specific vaccine you want to use (this changes the vaccine’s effectiveness according to the percentage stated). Let’s save some lives!</h3>
           <div className="input-section">
-            <InputSection userID={userID} simulateClick={() =>handleSimulateClick}/>
+            <InputSection userID={userID} simulateClick={handleSimulateClick}/>
           </div>
         </div>
         <div className="warning-div">
