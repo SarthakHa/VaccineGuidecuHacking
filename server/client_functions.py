@@ -4,7 +4,7 @@ import io
 import time
 
 def send_request(countries,states,total_vaccines,efficacy,total_time,iterations,uid):
-    string = "http://128.2.178.158:6968?uid={0}&total_time={1}&total_vaccines={2}&efficacy={3}&iterations={4}&countries=".format(uid,total_time,total_vaccines,efficacy,iterations)
+    string = "http://128.2.178.158:6969?uid={0}&total_time={1}&total_vaccines={2}&efficacy={3}&iterations={4}&countries=".format(uid,total_time,total_vaccines,efficacy,iterations)
     for country in countries:
         string += country+","
     if len(countries) != 0: string = string[:-1]
@@ -28,6 +28,9 @@ def check_existence(uid,file_name):
                 
                 return formatted_data
     except:
+<<<<<<< HEAD
+        return False
+=======
         return []
 
 if __name__ == "__main__": #Just testing to see if it works, this won't run otherwise
@@ -40,3 +43,4 @@ if __name__ == "__main__": #Just testing to see if it works, this won't run othe
             print(temp)
             break
         print("couldn't find")
+>>>>>>> 24bf3ea6aae62d69b3439328b2fafcc14f90aeaa

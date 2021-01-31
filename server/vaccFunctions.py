@@ -27,14 +27,11 @@ def check():
     vaccine = req_data["Vaccine"]
     efficacy = vaccine
     countries = req_data["Countries"]
-    for country in countries:
-        if country == "South Africa":
-            country = "SA"
-        if country == "United States":
-            country = "USA"
+    for i in range(len(countries)):
+        countries[i] = countries[i].replace(" ", "_")
     states = []
     if len(countries) < 3 and len(states) < 3:
-        return jsonify({"error": "Selected fewer countries."})
+        return jsonify({"error": "Select fewer countries."})
     #states = req_data["States"]
     #if states == "null":
     if req_data["numDays"] < 1 or req_data["numDays"] > 180:
