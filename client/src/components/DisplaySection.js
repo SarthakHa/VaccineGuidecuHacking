@@ -49,6 +49,8 @@ const DisplaySection =({data,countries})=>{
         {dayToDisplay>-1?( <Chart className="chart" record={data[dayToDisplay-1]} countries={countries}/>
         ):null}
         </div>
+
+        
       </Fragment>
 
      

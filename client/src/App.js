@@ -2,6 +2,7 @@ import React,{Fragment,useState,useEffect,createRef} from 'react'
 import InputSection from './components/InputSection'
 import DisplaySection from './components/DisplaySection'
 import PacmanLoader from "react-spinners/PacmanLoader";
+import BarChart from "./components/BarChart"
 
 import Button from '@material-ui/core/Button'
 import './App.css';
@@ -9,8 +10,11 @@ import './App.css';
 const App = ()=> {
   const [data,setData] = useState ([[1000,2000,3000,4000,5000],[3000,2000,1000,500,100],[5000,1000,2000,4000,5000]])
   const [contries,setContries]= useState( ["USA","UK","Canada", "Russia","South Africa"])
-  const [readyToDisplay, setReadyToDisplay] = useState(false);
-  const [simulateClick,setSimulateClick] = useState(false)
+
+  const [policyNames, setPolicyNames] = useState(["Population", "Infected","Learned","No Policy"])
+  const [policyComparison, setPolicyComparison] = useState([10,20,30,40])
+  const [readyToDisplay, setReadyToDisplay] = useState(true);
+  const [simulateClick,setSimulateClick] = useState(true)
   const [userID,setUserID] = useState("")
 
   const scrollSelectionDiv =createRef();
@@ -92,13 +96,15 @@ const App = ()=> {
       {simulateClick? ( <div className="chart-grid-container">
       {readyToDisplay? ( <div className="display-section-div">
           <DisplaySection data={data} countries={contries}/>
+          <div className="bar-chart-div"> <BarChart  policyComparison={policyComparison} policyNames={policyNames}/></div>
+         
+         
           </div>): 
             <div className="loader">
               <h1>Simulating...</h1>
               <h2>This will take hours to simulate.</h2>
              <PacmanLoader  size={150} color="#6c63ff" loading={!readyToDisplay} />
               
-
             </div>}
       </div> ): null}
       

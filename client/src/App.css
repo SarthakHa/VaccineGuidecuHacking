@@ -273,7 +273,7 @@
   grid-template-columns: 1.3fr 1.8fr;
   grid-template-rows: 1fr 3fr 3fr 3fr 1fr;
   background-color: RGB(235, 247, 246);
-  height: 100vh;
+  height: 150vh;
 }
 
 .display-section-div {
@@ -303,4 +303,10 @@
   font-weight: 800;
   margin-bottom: 5vh;
   margin-left: -8vh;
+}
+
+.bar-chart-div {
+  width: 70vw;
+  margin-left: 15vw;
+  margin-top: 10vh;
 }
