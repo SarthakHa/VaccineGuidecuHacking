@@ -8,14 +8,16 @@ import Button from '@material-ui/core/Button'
 import './App.css';
 
 const App = ()=> {
-  const [data,setData] = useState ([[1000,2000,3000,4000,5000],[3000,2000,1000,500,100],[5000,1000,2000,4000,5000]])
-  const [contries,setContries]= useState( ["USA","UK","Canada", "Russia","South Africa"])
+  const [data,setData] = useState ([])
+  const [contries,setContries]= useState( [])
 
-  const [policyNames, setPolicyNames] = useState(["Population", "Infected","Learned","No Policy"])
-  const [policyComparison, setPolicyComparison] = useState([10,20,30,40])
-  const [readyToDisplay, setReadyToDisplay] = useState(true);
-  const [simulateClick,setSimulateClick] = useState(true)
+  const [policyNames, setPolicyNames] = useState([])
+  const [policyComparison, setPolicyComparison] = useState([])
+  const [readyToDisplay, setReadyToDisplay] = useState(false);
+  const [simulateClick,setSimulateClick] = useState(false)
   const [userID,setUserID] = useState("")
+  const [TBLink, setTBLink] = useState("")
+
 
   const scrollSelectionDiv =createRef();
   const scrollHomeDiv =createRef();
@@ -41,9 +43,33 @@ const App = ()=> {
     scrollLoadingDiv.current.scrollIntoView({ behavior: "smooth" });
   };
 
-    const handleSimulateClick=()=>{
-    setSimulateClick(true)
-    console.log(simulateClick)
+  const handleSimulateClick=(bool)=>{
+    setSimulateClick(bool)
+
+  }
+
+  const setDataHandler =(actions)=>{
+    setData(actions)
+  }
+
+  const setContriesHandler = (contries) =>{
+    setContries(contries);
+  }
+
+  const setPolicyNamesHandler = (names) =>{
+    setPolicyNames(names)
+  }
+
+  const setComparisonsHandler = (comparisons) =>{
+    setPolicyComparison(comparisons)
+  }
+
+  const setReadyToDisplayHandler = (bool)=>{
+    setReadyToDisplay(bool)
+  }
+
+  const setTBLinkHandler =(link) =>{
+    setTBLink(link)
   }
 
   useEffect(() => {
@@ -85,7 +111,7 @@ const App = ()=> {
           <h1 className="instruction-text">Instruction</h1>
           <h3>Select either countries or states/provinces. Make your selection of places and then enter: the number of vaccines allocated per day, the number of days over which you would like the simulation to run, and the specific vaccine you want to use (this changes the vaccine’s effectiveness according to the percentage stated). Let’s save some lives!</h3>
           <div className="input-section">
-            <InputSection userID={userID} simulateClick={handleSimulateClick} scrollLoadingDivHandler ={scrollLoadingDivHandler} />
+            <InputSection userID={userID} setDataHandler={setDataHandler} setContriesHandler={setContriesHandler} setTBLinkHandler={setTBLinkHandler} setReadyToDisplayHandler={setReadyToDisplayHandler} setPolicyNamesHandler={setPolicyNamesHandler}  setComparisonsHandler={setComparisonsHandler} simulateClick={handleSimulateClick} scrollLoadingDivHandler ={scrollLoadingDivHandler} />
           </div>
         </div>
         <div className="warning-div">
@@ -103,12 +129,11 @@ const App = ()=> {
       {readyToDisplay? ( <div className="display-section-div">
           <DisplaySection data={data} countries={contries}/>
           <div className="bar-chart-div"> <BarChart  policyComparison={policyComparison} policyNames={policyNames}/></div>
-         
-         
           </div>): 
             <div className="loader">
               <h1>Simulating...</h1>
-              <h2>This will take hours to simulate.</h2>
+               <a href="`${TBLink}`" >Watch the model train!</a>
+              <h2>This could take hours to simulate.</h2>
              <PacmanLoader  size={150} color="#6c63ff" loading={!readyToDisplay} />
               
             </div>}
@@ -142,14 +167,14 @@ const App = ()=> {
 
             <p>Now, with our phases in hand, we can optimize our model and get the best fit parameters over each different phase. For our vaccination simulation we only care about the most recent phase (as this is the phase after which we begin simulating) and therefore, we can save some time by not optimizing our parameters during the other phases.</p>
 
-            <p>It should be noted that our model makes a few basic assumptions:
+            <p>It should be noted that our model makes a few basic assumptions: </p>
               <ol>
                 <li>The parameter values do not change as we simulate the future (which is improbable), i.e. lockdown measures and etc. do not change during the time period.</li>
                 <li>Every case that exists is in the data set (i.e. no asymptomatic people who have not been tested).</li>
                 <li>We ignore time taken to distribute and assume all people get the vaccine immediately.</li>
                 <li>When simulating, we assume vaccine effectiveness does not depend on age and that there are no possible negative repercussions.</li>
               </ol>
-            </p>
+           
             </h3>
           </div>
           
