@@ -1,7 +1,7 @@
 import urllib.request
 
 def send_request(countries,states,total_vaccines,efficacy,total_time,iterations,uid):
-    string = "http://128.2.178.158:6968?uid={0}&total_time={1}&total_vaccines={2}&efficacy={3}&iterations={4}&countries=".format(uid,total_time,total_vaccines,efficacy,iterations)
+    string = "http://128.2.178.158:6969?uid={0}&total_time={1}&total_vaccines={2}&efficacy={3}&iterations={4}&countries=".format(uid,total_time,total_vaccines,efficacy,iterations)
     for country in countries:
         string += country+","
     if len(countries) != 0: string = string[:-1]
@@ -25,4 +25,3 @@ def check_existence(file_name):
                 return data
     except:
         return False
-
