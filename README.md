@@ -29,6 +29,11 @@ Results are given to the user as:
 
 The user can also learn more about the simulation and the model used by scrolling down the page to the sections "Learn About the Model" and "Learn about the Simulation". It is important to note that the model assumes that people, once infected, can only recover or pass away according to their proportionality coefficients, &gamma; and &alpha;, respectively. Furthermore, the model ignores demographic differences, air traffic, transportation time etc. However, our model provides the building blocks for future models to improve as we acquire more data and learn more about COVID-19. As well all take part in this medical journey, it is important to consider the fact that data science provides a realistic path towards a quicker and less costly, victory.
 
+## Web App Creation
+To create the webapp, we coded up the front-end using figma for design and react for the animations. We wrote a lot of CSS code to make smooth animations and a clean layout.We used Chart.js for the plotting of the pie chart and the bar chart to make it look quite interactive. We coded the back-end framework in python and used flask for the front-end and back-end integration. The webapp was then hosted on a Heryoku server. 
+
+To handle the training of the data, we setup a multi-threaded server on a google cloud machine which handled training requests for the AI agent and also sent the trained policy and its evaluation back to the Heryoku server to display it on the front-end.  
+
 ## Real World Impact
 Guide Vaccine aims to provide real world advice to government officials about how best to allocate their limited vaccines. Although the model used is limited as of now, given longer training time and more complicated models, the results would be more accurate and could provide real world benefit in this global time of need. Our solution is very modular which means that these assumptions only impact the environment we make for the AI agent and that the training will essentially remain the same. This makes it very easy for us to update our model in the future as more data becomes available, making our product adaptable and versatile.
 
