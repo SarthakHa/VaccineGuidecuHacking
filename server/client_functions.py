@@ -4,7 +4,7 @@ import io
 import time
 
 def send_request(countries,states,total_vaccines,efficacy,total_time,iterations,uid):
-    string = "http://128.2.178.158:6968?uid={0}&total_time={1}&total_vaccines={2}&efficacy={3}&iterations={4}&countries=".format(uid,total_time,total_vaccines,efficacy,iterations)
+    string = "http://128.2.178.158:6969?uid={0}&total_time={1}&total_vaccines={2}&efficacy={3}&iterations={4}&countries=".format(uid,total_time,total_vaccines,efficacy,iterations)
     for country in countries:
         string += country+","
     if len(countries) != 0: string = string[:-1]
@@ -24,7 +24,7 @@ def check_existence(uid,file_name):
     try:
         with urllib.request.urlopen(string) as f:
                 data = f.read()
-                formatted_data = numpy.load(io.BytesIO(data),allow_pickle=True)
+                formatted_data = numpy.load(io.BytesIO(data),allow_pickle=True).item()
                 
                 return formatted_data
     except:
