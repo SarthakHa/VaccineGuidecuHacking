@@ -93,7 +93,6 @@ const App = ()=> {
           </div>): <div><InputSection></InputSection></div>}
       </div> ): null}
       
-
       <div className="third-grid-container" ref={scrollModalDiv}>
           <div className="text">
             <h1>Learn About the Model</h1>
