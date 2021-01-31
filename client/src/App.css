@@ -223,3 +223,8 @@
   background-color: RGB(235, 247, 246);
   height: 100vh;
 }
+
+.display-section-div {
+  grid-row: 2/4;
+  grid-column: 1/4;
+}

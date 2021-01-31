@@ -1,0 +1,13 @@
+.slider-div {
+  width: 50%;
+  text-align: center;
+  margin-left: 25vw;
+}
+
+.slider-div h1 {
+  color: black;
+  font-family: "Montserrat", Helvetica, Arial, serif;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 600;
+}
