@@ -4,18 +4,14 @@ that handles requests from the frontend
 """
 import os
 from flask import Flask, send_from_directory
-from upload import Upload
-from grayscale import Grayscale
-from gif import Gif
+from vaccFunctions import VaccFunctions
 
 CURRENT_DIR = os.path.dirname(__file__)
 client_folder = CURRENT_DIR + '/../client/build/'
 app = Flask(__name__, static_folder=client_folder)
 
 # account for imported request handlers
-app.register_blueprint(Upload)
-app.register_blueprint(Grayscale)
-app.register_blueprint(Gif)
+app.register_blueprint(VaccFunctions)
 
 # Serve React App
 @app.route('/', defaults={'path': ''})
