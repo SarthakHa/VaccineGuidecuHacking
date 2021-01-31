@@ -1,4 +1,4 @@
-# Guide Vaccine
+# Vaccine Guide
 
 While COVID-19 cases continue to rise all over the globe, many of us have grown tired of staying inside and not seeing our friends. Luckily, with recent medical advancements governments are starting to distribute vaccines that will reduce the spread of the virus. However, for large countries, such as Canada and the United States, how best do these governments allocate the limited number of vaccines within their states in order to reduce deaths? Guide Vaccine is a website that finds the ***optimal vaccine distribution across a list of user selected places in order to minimise deaths using reinforcement learning***! 
 
@@ -106,7 +106,7 @@ If you’ve never used Heroku before, visit their website and create an account.
 `brew tap heroku/brew && brew install heroku`
 `heroku login`
 
-Now that the cli is installed, we’ll create a Heroku app and push the site online. The Heroku CLI should provide a URL that you can visit to view your site online. In my case, the URL is https://guidevaccine.herokuapp.com/. 
+Now that the cli is installed, we’ll create a Heroku app and push the site online. The Heroku CLI should provide a URL that you can visit to view your site online. In my case, the URL is https://vaccineguide.herokuapp.com/. 
 
 `heroku create`
 
