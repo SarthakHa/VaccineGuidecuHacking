@@ -98,7 +98,7 @@ const App = ()=> {
             <h1>Learn About the Model</h1>
             
             <h3> The model we have used to fit and simulate the data is called an SIRD model. SIRD stands for Susceptible, Infected, Recovered and Deceased and is a standard epidemic model (note that N is the total population and is assumed to be unchanging). This model has been chosen due to its relatively quick optimization time when running and due to the generally poorly compiled COVID-19 data sets that do not contain the statistics necessary
-            for more complicated models. Mathematically, the SIRD model is represented by a system of ODEs: (Read More...)</h3>
+            for more complicated models. Mathematically, the SIRD model is represented by a system of ODEs: </h3>
           </div>
           
            <div className="teacher-image-div">
