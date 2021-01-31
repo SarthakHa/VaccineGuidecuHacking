@@ -9,7 +9,7 @@ Defining what an equitable distribution of vaccines is rather hard, but we chose
 
 ## How it Works
 
-The user chooses their countries (or states/provinces for a specific country), the number of vaccines they would like to allocate per day, the number of days across which the distribution will be generated and the type of vaccine (which effects the vaccine's effectiveness e.g. Pfizzer and Moderna are ~95% effective, etc.). We then use a Python library called covsirphy that automatically imports the latest COVID-19 data in order to find the parameters for our SIRD Model. 
+The user chooses their countries (or states/provinces for a specific country), the number of vaccines they would like to allocate per day, the number of days across which the distribution will be generated and the type of vaccine (which effects the vaccine's effectiveness e.g. Pfizzer and Moderna are ~95% effective, etc.). We then use a Python library called Covsirphy that automatically imports the latest COVID-19 data in order to find the parameters for our SIRD Model. 
 
 SIRD stands for Susceptible, Infected, Recovered and Deceased and is a standard epidemic model to predict the spread of viruses. The model is described by a system of differential equations (shown below) and a set of parameters. 
 
@@ -18,7 +18,7 @@ SIRD stands for Susceptible, Infected, Recovered and Deceased and is a standard 
 <img src="https://render.githubusercontent.com/render/math?math=dR/dt = \gamma I(t)">
 <img src="https://render.githubusercontent.com/render/math?math=dD/dt = \alpha I(t)">
 
-We use covsirphy's fitting function to fit the data and find the parameters using regression statistics. However, before we fit, we must recognise that our parameters are not gonna remain constant over time as quarantine measures changes, air traffic changes and so on. Therefore, we first split our data up into regions called “Phases”. Covsirphy is used to describe the different phases when the parameters are changing (using S-R trend analysis) and find the optimal parameter values within these phases. More detail can be found on our website! Once we find the parameters, we then feed this into our learning protocol that learns the best method for providing vaccines to each place in order to **minimize deaths**.
+We use Covsirphy's fitting function to fit the data and find the parameters using regression statistics. However, before we fit, we must recognise that our parameters are not gonna remain constant over time as quarantine measures changes, air traffic changes and so on. Therefore, we first split our data up into regions called “Phases”. Covsirphy is used to describe the different phases when the parameters are changing (using S-R trend analysis) and find the optimal parameter values within these phases. More detail can be found on our website! Once we find the parameters, we then feed this into our learning protocol that learns the best method for providing vaccines to each place in order to **minimise deaths**.
 
 Results are given to the user as:
 
@@ -31,7 +31,7 @@ The user can also learn more about the simulation and the model used by scrollin
 Guide Vaccine aims to provide real world advice to government officials about how best to allocate their limited vaccines. Although the model used is limited as of now, given longer training time and more complicated models, the results would be more accurate and could provide real world benefit in this global time of need. Our solution is very modular which means that these assumptions only impact the environment we make for the AI agent and that the training will essentially remain the same. This makes it very easy for us to update our model in the future as more data becomes available, making our product adaptable and versatile.
 
 ## Limitations
-The approach used is not the best solution yet, since our proposed distribution only works as well as the model for the environment we made, which makes many assumptions about the data produced by the governments as well as how the vaccine will reduce death rates. We made a few assumptions in our approach, namely that there are no asymptomatic cases and that the vaccine is instantly and randomly distributed across demographics, not prioritized to certain patients. These assumptions can be relaxed once more data is found that predicts the spread of COVID-19 better, as well as the effects of prioritized vaccinations on certain demographics.
+The approach used is not the best solution yet, since our proposed distribution only works as well as the model for the environment we made, which makes many assumptions about the data produced by the governments as well as how the vaccine will reduce death rates. We made a few assumptions in our approach, namely that there are no asymptomatic cases and that the vaccine is instantly and randomly distributed across demographics, not prioritised to certain patients. These assumptions can be relaxed once more data is found that predicts the spread of COVID-19 better, as well as the effects of prioritised vaccinations on certain demographics.
 
 ## Future Work
 
