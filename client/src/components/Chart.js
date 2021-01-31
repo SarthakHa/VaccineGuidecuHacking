@@ -1,7 +1,6 @@
-import React,{useEffect} from 'react'
-import {Pie,Bar} from 'react-chartjs-2'
-import ButtonGroup from '@material-ui/core/ButtonGroup'
-import Button from '@material-ui/core/Button'
+import React from 'react'
+import {Pie} from 'react-chartjs-2'
+
 
 
 const Chart =({record,countries}) =>{
