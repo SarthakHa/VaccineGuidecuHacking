@@ -1,22 +1,15 @@
 import React,{Fragment,useState,useEffect} from 'react'
-import InputRange from 'react-input-range';
 import Chart from './Chart.js'
-import { makeStyles } from '@material-ui/core/styles';
-import Slider from '@material-ui/core/Slider';
 import Typography from '@material-ui/core/Typography';
 import 'react-bootstrap-range-slider/dist/react-bootstrap-range-slider.css';
 import RangeSlider from 'react-bootstrap-range-slider';
 import './DisplaySection.css'
 
 
-const useStyles = makeStyles({
-    root: {
-      width: 300,
-    },
-  });
+
 
 const DisplaySection =({data,countries})=>{
-    const classes = useStyles();
+
     const [numberOfSteps,setNumberOfSteps] = useState(1)
     const [dayToDisplay,setDayToDisplay] = useState(0)
 
