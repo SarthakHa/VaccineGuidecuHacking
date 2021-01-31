@@ -40,6 +40,9 @@ Guide Vaccine aims to provide real world advice to government officials about ho
 ## Limitations
 The approach used is not the best solution yet, since our proposed distribution only works as well as the model for the environment we made, which makes many assumptions about the data produced by the governments as well as how the vaccine will reduce death rates. We made a few assumptions in our approach, namely that there are no asymptomatic cases and that the vaccine is instantly and randomly distributed across demographics, not prioritised to certain patients. These assumptions can be relaxed once more data is found that predicts the spread of COVID-19 better, as well as the effects of prioritised vaccinations on certain demographics.
 
+## Results
+In a trial in which we trained our agent to divide 5 million vaccines per day for 120 days between USA, Russia, Canada, Japan and South Africa, our AI agent was able to reduce deaths by around 50k to 410k eaths from the 460k deaths reached by a simpler stratergy that would divide vaccines based on the ratio of active infections in the country on each day. We needed to train the AI agent for 100k iterations over a period of 3.5 hours to reach this result. 
+
 ## Tips for training model
 In case someone wants to replicate our work and train their own models in a more granular way using our code, here are some tips we identified along the way:
 
