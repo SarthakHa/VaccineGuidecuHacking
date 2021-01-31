@@ -61,6 +61,7 @@ class NumpyEncoder(json.JSONEncoder):
 
 @VaccFunctions.route("/vaccFunctions/continualCheck", methods=["POST"])
 def continualCheck():
+    '''
     req_data = request.get_json()
     uid = req_data["UserID"]
     while True:
@@ -74,4 +75,3 @@ def continualCheck():
     json_dump = json.dumps(data, cls=NumpyEncoder)
     #print(json_dump)
     return json_dump
-    '''
