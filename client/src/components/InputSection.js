@@ -143,20 +143,20 @@ const InputSection= ()=>{
 
         
         console.log("data",data)
-        const response= await fetch('/test',{
+        fetch('/test',{
           method:'POST',
           headers:{
             'Content-Type':'application/json'
           },
           body: JSON.stringify(data)
         })
-        console.log("response",response)
-        console.log("response.body",response.body)
-        if(response.ok){
-          console.log("responsed")
-        }else{
-          console.log("fail")
-        }
+        .then(response => response.json())
+        .then(data => {
+        console.log('Success:', data);
+        })
+        .catch((error) => {
+        console.error('Error:', error);
+        });
 
       
         
