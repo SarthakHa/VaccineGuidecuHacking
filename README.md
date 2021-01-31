@@ -13,7 +13,7 @@ SIRD stands for Susceptible, Infected, Recovered and Deceased and is a standard 
 <img src="https://render.githubusercontent.com/render/math?math=dR/dt = \gamma I(t)">
 <img src="https://render.githubusercontent.com/render/math?math=dD/dt = \alpha I(t)">
 
-We use covsirphy's fitting function to fit the data using regression statistics. Short specifics about the model can be found in the `README.md` under `model_fitting` or in greater detail on our website! Once we find the parameters, we then feed this into our learning protocol that learns the best method for providing vaccines to each place.
+We use covsirphy's fitting function to fit the data and find the parameters using regression statistics. However, before we fit, we must recognise that our parameters are not gonna remain constant over time as quarantine measures changes, air traffic changes and so on. Therefore, we first split our data up into regions called “Phases”. Covsirphy is used to describe the different phases when the parameters are changing (using S-R trend analysis) and find the optimal parameter values within these phases. More detail can be found on our website! Once we find the parameters, we then feed this into our learning protocol that learns the best method for providing vaccines to each place.
 
 Results are given to the user as:
 
@@ -21,7 +21,7 @@ Results are given to the user as:
 - A line graph that will display deaths over time per country.
 - A bar plot comparing the results of different protocols to that with no vaccine.
 
-The user can also learn more about the simulation and the model used by scrolling down the page to the sections "Learn About the Model" and "Learn about the Simulation". 
+The user can also learn more about the simulation and the model used by scrolling down the page to the sections "Learn About the Model" and "Learn about the Simulation". It is important to note that the model assumes that people, once infected, can only recover or pass away according to their proportionality coefficients, &gamma; and &alpha;, respectively. Furthermore, the model ignores demographic differences, air traffic, transportation time etc. Our model provides the building blocks for improved models in the future as we acquire more data and learn more about COVID-19. However, data science provides a realistic path towards a quicker and less costly, victory!
 
 ## Real World Impact
 Guide Vaccine aims to provide real world advice to government officials about how best to allocate their limited vaccines. Although the model used is limited as of now, given longer training time and more complicated models, the results would be more accurate and could provide real world benefit in this global time of need. Our solution is very modular which means that these assumptions only impact the environment we make for the AI agent and that the training will essentially remain the same. This makes it very easy for us to update our model in the future as more data becomes available, making our product adaptable and versatile.
