@@ -32,11 +32,11 @@ def check():
             country = "SA"
         if country == "United States":
             country = "USA"
-    if len(countries) < 3:
+    states = []
+    if len(countries) < 3 and len(states) < 3:
         return jsonify({"error": "Selected fewer countries."})
     #states = req_data["States"]
     #if states == "null":
-    states = []
     if req_data["numDays"] < 1 or req_data["numDays"] > 180:
         return jsonify({"error": "Number of days not valid."})
     if req_data["numVaccs"] < 0 or req_data["numVaccs"] > 20000000:
