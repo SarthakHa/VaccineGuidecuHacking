@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
   }));
 
 
-const InputSection= (userID)=>{
+const InputSection= ({userID,simulateClick})=>{
     const classes = useStyles();
     const [selectCountries,setSelectContries]= useState(false);
     const [selectStates,setSelectStates]= useState(false);
@@ -117,34 +117,37 @@ const InputSection= (userID)=>{
 
     const onSubmit=async()=>{
         
+        
         var data = new Object()
         if(countries.length ===0){
-          data.countries = null
+          data.Countries = null
         }else{
-          data.countries = countries
+          data.Countries = countries
         }
 
         if(states.length ===0){
-          data.states = null
+          data.States = null
         }else{
-          data.states=states
+          data.States=states
         }
 
         if(currentCountry.length ===0){
-          data.currentCountry = null
+          //data.Countries = new Array();
         }else{
-          data.currentCountry = new Array()
-          data.currentCountry[0] = currentCountry
+          data.Countries = new Array()
+          data.Countries[0] = currentCountry
         }
     
-        data.numberOfSteps = numberOfSteps
-        data.numberOfVaccinePerDay = numberOfVaccinePerDay
-        data.vaccineSelected = vaccineSelected
+        data.numDays = numberOfSteps
+        data.numVaccs = numberOfVaccinePerDay
+        data.Vaccine = vaccineSelected
         data.UserID = userID
 
-        
+       
         console.log("data",data)
-        fetch('/test',{
+
+      
+        fetch('/vaccFunctions/check',{
           method:'POST',
           headers:{
             'Content-Type':'application/json'
@@ -192,7 +195,7 @@ const InputSection= (userID)=>{
         <TextField
             required
           id="standard-number"
-          label="Number of vaccines per day (0<2millions)"
+          label="Number of vaccines per day (0<20millions)"
           type="number"
           onChange={e=>setNumberOfVaccinePerDay(e.target.value)}
           InputLabelProps={{

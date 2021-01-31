@@ -10,8 +10,10 @@ import './App.css';
 
 const App = ()=> {
 
-  const data = [[1000,2000,3000,4000,5000],[3000,2000,1000,500,100],[5000,1000,2000,4000,5000]]
-  const contries= ["USA","UK","Canada", "Russia","South Africa"]
+  const [data,setData] = useState ([[1000,2000,3000,4000,5000],[3000,2000,1000,500,100],[5000,1000,2000,4000,5000]])
+  const [contries,setContries]= useState( ["USA","UK","Canada", "Russia","South Africa"])
+  const [readyToDisplay, setReadyToDisplay] = useState(false);
+  const [simulateClick,setSimulateClick] = useState(false)
   const [userID,setUserID] = useState("")
 
   const scrollSelectionDiv =createRef();
@@ -28,10 +30,14 @@ const App = ()=> {
     scrollModelDiv.current.scrollIntoView({ behavior: "smooth" });
   };
 
+  const handleSimulateClick = () =>{
+    setSimulateClick(true)
+    console.log(simulateClick)
+  }
+
   useEffect(() => {
     
     setUserID(Date.now())
-
   },[]);
 
 
@@ -67,7 +73,7 @@ const App = ()=> {
           <h1 className="instruction-text">Instruction</h1>
           <h3>Select either countries or states/provinces. Make your selection of places and then enter: the number of vaccines allocated per day, the number of days over which you would like the simulation to run, and the specific vaccine you want to use (this changes the vaccine’s effectiveness according to the percentage stated). Let’s save some lives!</h3>
           <div className="input-section">
-            <InputSection userID={userID}/>
+            <InputSection userID={userID} simulateClick={() =>handleSimulateClick}/>
           </div>
         </div>
         <div className="warning-div">
@@ -81,16 +87,20 @@ const App = ()=> {
           </div>
       </div>
 
-      <div className="chart-grid-container">
-        
-        <div className="display-section-div">
+      {simulateClick? ( <div className="chart-grid-container">
+      {readyToDisplay? ( <div className="display-section-div">
           <DisplaySection data={data} countries={contries}/>
-          </div>
+          </div>): <div><InputSection></InputSection></div>}
+      </div> ): null}
       
 
+<<<<<<< HEAD
       </div>
 
       <div className="third-grid-container" ref={scrollModelDiv}>
+=======
+      <div className="third-grid-container" ref={scrollModalDiv}>
+>>>>>>> 8eedd6f370e7cf2a56b01707996494579eccdb35
           <div className="text">
             <h1>Learn About the Model</h1>
             
