@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
   }));
 
 
-const InputSection= ({userID,simulateClick})=>{
+const InputSection= ({userID,setDataHandler,setContriesHandler,setTBLinkHandler,setReadyToDisplayHandler, setPolicyNamesHandler,setComparisonsHandler,simulateClick})=>{
     const classes = useStyles();
     const [selectCountries,setSelectContries]= useState(false);
     const [selectStates,setSelectStates]= useState(false);
@@ -117,6 +117,7 @@ const InputSection= ({userID,simulateClick})=>{
 
     const onSubmit=async()=>{
 
+      setReadyToDisplayHandler(false)
       if(selectCountries === false && selectStates === false){
         alert("Please select either Contries or States/Provinces for simulation")
         return;
@@ -166,7 +167,7 @@ const InputSection= ({userID,simulateClick})=>{
 
        
         console.log("data",data)
-        simulateClick()
+        simulateClick(true)
         alert("Starting simulation")
         //scrollLoadingDivHandler()
       
@@ -181,11 +182,15 @@ const InputSection= ({userID,simulateClick})=>{
         .then(response => response.json())
         .then(data => {
           serverResponse = data
-          console.log('Success:', data);
+          setTBLinkHandler(data.url)
+          console.log('Success:', data.url);
+
         })
         .catch((error) => {
         console.error('Error:', error);
         });
+
+        var graphData= new Object();
 
         if(serverResponse !== {}){
           fetch('/vaccFunctions/continualCheck',{
@@ -197,12 +202,27 @@ const InputSection= ({userID,simulateClick})=>{
           })
           .then(response => response.json())
           .then(data => {
-            console.log('Success:', data);
+            graphData = data;
+            console.log('data.learned_policy_actions', data.learned_policy_actions);
+            console.log('data.place_names', data.place_names);
+            console.log('data.policy_names', data.policy_names);
+            console.log('data.policy_comparison', data.policy_comparison);
+            //setDataHandler,setContriesHandler,setTBLinkHandler,setReadyToDisplayHandler, setPolicyNamesHandler,setComparisonsHandler
+
+            setDataHandler(data.learned_policy_actions)
+            setContriesHandler(data.place_names)
+            setPolicyNamesHandler(data.policy_names)
+            setComparisonsHandler(data.policy_comparison)
+            setReadyToDisplayHandler(true)
+            
           })
           .catch((error) => {
           console.error('Error:', error);
           });
         }
+
+
+        
 
 
       
