@@ -12,6 +12,7 @@ const App = ()=> {
 
   const data = [[1000,2000,3000,4000,5000],[3000,2000,1000,500,100],[5000,1000,2000,4000,5000]]
   const contries= ["USA","UK","Canada", "Russia","South Africa"]
+  const [userID,setUserID] = useState("")
 
   const scrollSelectionDiv =createRef();
   const scrollHomeDiv =createRef();
@@ -26,6 +27,12 @@ const App = ()=> {
   const scrollModalDivHandler = () => {
     scrollModalDiv.current.scrollIntoView({ behavior: "smooth" });
   };
+
+  useEffect(() => {
+    
+    setUserID(Date.now())
+
+  },[]);
 
 
   return (
@@ -60,7 +67,7 @@ const App = ()=> {
           <h1 className="instruction-text">Instruction</h1>
           <h3>Select either countries or states/provinces. Make your selection of places and then enter: the number of vaccines allocated per day, the number of days over which you would like the simulation to run, and the specific vaccine you want to use (this changes the vaccine’s effectiveness according to the percentage stated). Let’s save some lives!</h3>
           <div className="input-section">
-            <InputSection/>
+            <InputSection userID={userID}/>
           </div>
         </div>
         <div className="warning-div">
@@ -85,7 +92,7 @@ const App = ()=> {
 
       <div className="third-grid-container" ref={scrollModalDiv}>
           <div className="text">
-            <h1>Learn About the Modal</h1>
+            <h1>Learn About the Model</h1>
             
             <h3> The model we have used to fit and simulate the data is called an SIRD model. SIRD stands for Susceptible, Infected, Recovered and Deceased and is a standard epidemic model (note that N is the total population and is assumed to be unchanging). This model has been chosen due to its relatively quick optimization time when running and due to the generally poorly compiled COVID-19 data sets that do not contain the statistics necessary
             for more complicated models. Mathematically, the SIRD model is represented by a system of ODEs: (Read More...)</h3>

@@ -39,7 +39,7 @@ const DisplaySection =({data,countries})=>{
         <Fragment >
         <div className="slider-div">
       <Typography id="discrete-slider" gutterBottom>
-        <h1>Day</h1>
+        Day
       </Typography>
     
       <RangeSlider

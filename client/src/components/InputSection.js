@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
   }));
 
 
-const InputSection= ()=>{
+const InputSection= (userID)=>{
     const classes = useStyles();
     const [selectCountries,setSelectContries]= useState(false);
     const [selectStates,setSelectStates]= useState(false);
@@ -140,6 +140,7 @@ const InputSection= ()=>{
         data.numberOfSteps = numberOfSteps
         data.numberOfVaccinePerDay = numberOfVaccinePerDay
         data.vaccineSelected = vaccineSelected
+        data.UserID = userID
 
         
         console.log("data",data)
@@ -149,12 +150,14 @@ const InputSection= ()=>{
             'Content-Type':'application/json'
           },
           body: JSON.stringify(data)
-        }).then(function(response){
-            return response.json();
-        }).then(function(data){
-            console.log("data from server: ",data)
         })
-        
+        .then(response => response.json())
+        .then(data => {
+        console.log('Success:', data);
+        })
+        .catch((error) => {
+        console.error('Error:', error);
+        });
 
       
         
