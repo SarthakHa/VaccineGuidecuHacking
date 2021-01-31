@@ -16,7 +16,7 @@ def returnTwelve():
 @VaccFunctions.route("/test", methods=['POST'])
 def testReq():
     req_data = request.get_json()
-    data = req_data[]
+    data = req_data["ID"]
     return jsonify({"hello": 12})
 
 @VaccFunctions.route("/vaccFunctions/check", methods=['POST'])
