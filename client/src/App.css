@@ -52,6 +52,7 @@
   font-family: "Montserrat", Helvetica, Arial, serif;
   font-size: 1.1rem;
   margin: 2rem;
+  cursor: pointer;
 }
 
 .navbar h3:hover {
