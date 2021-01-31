@@ -169,6 +169,7 @@ const InputSection= ({userID,scrollLoadingDivHandler,setDataHandler,setContriesH
         console.log("data",data)
         simulateClick(true)
         alert("Starting simulation")
+        scrollLoadingDivHandler()
         //scrollLoadingDivHandler()
       
         var serverResponse = {}
@@ -191,6 +192,7 @@ const InputSection= ({userID,scrollLoadingDivHandler,setDataHandler,setContriesH
         alert("Something went wrong. Please refresh the page.")
         });
 
+       
         var graphData= new Object();
 
         if(serverResponse !== {}){
@@ -223,7 +225,7 @@ const InputSection= ({userID,scrollLoadingDivHandler,setDataHandler,setContriesH
           });
         }
 
-        scrollLoadingDivHandler()
+        
 
 
         

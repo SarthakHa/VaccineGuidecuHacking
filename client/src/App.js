@@ -133,7 +133,8 @@ const App = ()=> {
           </div>): 
             <div className="loader">
               <h1>Simulating...</h1>
-               Watch the model train! {TBLink}
+              
+               <h3>{TBLink} </h3>
               <h2>This could take hours to simulate.</h2>
              <PacmanLoader  size={150} color="#6c63ff" loading={!readyToDisplay} />
               

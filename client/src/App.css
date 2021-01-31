@@ -40,7 +40,7 @@
   margin: auto;
   margin-right: 5vw;
   padding: 3vh;
-  text-align:right;
+  text-align: right;
   position: fixed;
   z-index: 9999;
   right: 0vw;
@@ -334,6 +334,16 @@
   font-size: 1.5rem;
   font-style: normal;
   font-weight: 800;
+  margin-bottom: 5vh;
+  margin-left: -8vh;
+}
+
+.loader h3 {
+  color: black;
+  font-family: "Montserrat", Helvetica, Arial, serif;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 600;
   margin-bottom: 5vh;
   margin-left: -8vh;
 }
