@@ -208,6 +208,14 @@
   font-weight: 600;
 }
 
+.third-grid-container .text h3 {
+  color: black;
+  font-family: "Montserrat", Helvetica, Arial, serif;
+  font-size: 1.1rem;
+  font-style: normal;
+  font-weight: 500;
+}
+
 .third-grid-container .text {
   margin-left: 10vw;
   margin-right: 10vw;
