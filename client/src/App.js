@@ -97,7 +97,7 @@ const App = ()=> {
             <h1>Learn About the Model</h1>
             
             <h3> The model we have used to fit and simulate the data is called an SIRD model. SIRD stands for Susceptible, Infected, Recovered and Deceased and is a standard epidemic model (note that N is the total population and is assumed to be unchanging). This model has been chosen due to its relatively quick optimization time when running and due to the generally poorly compiled COVID-19 data sets that do not contain the statistics necessary
-            for more complicated models. Mathematically, the SIRD model is represented by a system of ODEs: <span class="ellipsis">...</span> 
+            for more complicated models. Mathematically, the SIRD model is represented by a system of ODEs: <span className="ellipsis">...</span> 
             <span className="moreText">
             The coefficients (β, γ, and α) are parameters that will be fit using the library covsirphy in Python. However, before we fit, we must recognise that our parameters are not gonna remain constant over time as quarantine measures changes, air traffic changes and so on. Therefore, we first split our data up into regions called “Phases”. 
 
@@ -110,7 +110,7 @@ const App = ()=> {
             Every case that exists is in the data set (i.e. no asymptomatic people who have not been tested).
             We ignore time taken to distribute and assume all people get the vaccine immediately.
             When simulating, we assume vaccine effectiveness does not depend on age and that there are no possible negative repercussions.
-            </span> <a class="more" href="#">read more</a></h3>
+            </span> <a className="more" href="#">read more</a></h3>
           </div>
           
            <div className="teacher-image-div">
