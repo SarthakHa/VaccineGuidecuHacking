@@ -132,7 +132,7 @@ const InputSection= ({userID,simulateClick})=>{
         }
 
         if(currentCountry.length ===0){
-          data.Countries = new Array();
+          //data.Countries = new Array();
         }else{
           data.Countries = new Array()
           data.Countries[0] = currentCountry
