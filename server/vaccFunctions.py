@@ -24,6 +24,7 @@ def testReq():
 
 @VaccFunctions.route("/vaccFunctions/check", methods=['POST'])
 def checkInitial():
+    '''
     #UserID, Countries, States, numDays, Vaccine, Efficacy, numVaccs, numIterations
     req_data = request.get_json()
     efficacy = 0
@@ -51,7 +52,8 @@ def checkInitial():
     port_no = send_request(req_data["Countries"], states, req_data["numVaccs"], efficacy, req_data["numDays"], iterations, req_data["UserID"])
     html = "http://128.2.178.158:" + str(port_no)
     return jsonify({"url": html})
-    #return jsonify({"test": "yes"})
+    '''
+    return jsonify({"test": "yes"})
 
 class NumpyEncoder(json.JSONEncoder):
     def default(self, obj):
@@ -61,6 +63,7 @@ class NumpyEncoder(json.JSONEncoder):
 
 @VaccFunctions.route("/vaccFunctions/continualCheck", methods=["POST"])
 def continualCheck():
+    '''
     req_data = request.get_json()
     uid = req_data["UserID"]
     while True:
@@ -74,4 +77,3 @@ def continualCheck():
     json_dump = json.dumps(data, cls=NumpyEncoder)
     #print(json_dump)
     return json_dump
-    '''
