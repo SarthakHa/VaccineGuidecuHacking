@@ -226,7 +226,7 @@ const InputSection= ({userID,simulateClick})=>{
 
         <div>
         <TextField
-            required
+          required
           id="standard-number"
           label="Number of steps (from 1-180)"
           type="number"
@@ -237,10 +237,12 @@ const InputSection= ({userID,simulateClick})=>{
           }}
         /> 
         <TextField
-            required
+          required
           id="standard-number"
           label="Number of vaccines per day (0<20millions)"
           type="number"
+          margin="1px"
+          variant="outlined"
           value={numberOfVaccinePerDay}
           onChange={e=>setNumberOfVaccinePerDay(e.target.value)}
           InputLabelProps={{
@@ -249,9 +251,9 @@ const InputSection= ({userID,simulateClick})=>{
         /> 
         <br/>
         <FormControl className={classes.formControl}>
-            <InputLabel id="demo-simple-select-label">Vaccine</InputLabel>
+            <InputLabel id="demo-simple-select-label" required>Vaccine</InputLabel>
             <Select
-          
+
             labelId="demo-simple-select-label"
             id="demo-simple-select"
             value={vaccineSelected}

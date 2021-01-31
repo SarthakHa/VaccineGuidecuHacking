@@ -9,8 +9,8 @@ This file is not called anywhere else. This is just used to plot our results whe
 """
 
 def policy_compare_plot():
-    p_data = np.abs(data["policy_comparision"])
-    policies = list(data.keys())[1:-1]
+    p_data = np.abs(data["policy_comparison"])
+    policies = data["policy_names"]
     fig = plt.figure()
     plt.bar(policies,p_data)
     plt.xlabel("Loss")
@@ -48,7 +48,9 @@ def vacc_distribution_plot():
 if __name__ == "__main__": #Just in case it gets called even though it shouldn't
     data = np.load("model_fitting/test_data/policy_data.npy", allow_pickle=True).item()
     country_names = ["1", "2", "3", "4"]
-    print(data["learned_policy_actions"])
+
+    print(data)
+
     #policy_compare_plot()
-    #SIRD_plot("infected_ratio")
+    #SIRD_plot("learned_policy")
     #vacc_distribution_plot()
