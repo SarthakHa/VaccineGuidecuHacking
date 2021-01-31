@@ -48,7 +48,9 @@ def vacc_distribution_plot():
 if __name__ == "__main__": #Just in case it gets called even though it shouldn't
     data = np.load("model_fitting/test_data/policy_data.npy", allow_pickle=True).item()
     country_names = ["1", "2", "3", "4"]
-    #print(data["learned_policy"]["susceptible"])
+
+    print(data)
+
     #policy_compare_plot()
-    SIRD_plot("learned_policy")
+    #SIRD_plot("learned_policy")
     #vacc_distribution_plot()
