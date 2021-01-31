@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
   }));
 
 
-const InputSection= (userID)=>{
+const InputSection= (userID,setSimulateClick)=>{
     const classes = useStyles();
     const [selectCountries,setSelectContries]= useState(false);
     const [selectStates,setSelectStates]= useState(false);
@@ -117,6 +117,7 @@ const InputSection= (userID)=>{
 
     const onSubmit=async()=>{
         
+        
         var data = new Object()
         if(countries.length ===0){
           data.Countries = null
@@ -142,9 +143,11 @@ const InputSection= (userID)=>{
         data.Vaccine = vaccineSelected
         data.UserID = userID
 
-        
+       
         console.log("data",data)
-        fetch('/test',{
+
+        setSimulateClick(true)
+        fetch('/vaccFunctions/check',{
           method:'POST',
           headers:{
             'Content-Type':'application/json'
@@ -192,7 +195,7 @@ const InputSection= (userID)=>{
         <TextField
             required
           id="standard-number"
-          label="Number of vaccines per day (0<2millions)"
+          label="Number of vaccines per day (0<20millions)"
           type="number"
           onChange={e=>setNumberOfVaccinePerDay(e.target.value)}
           InputLabelProps={{
