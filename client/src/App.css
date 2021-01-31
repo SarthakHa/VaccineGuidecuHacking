@@ -228,6 +228,10 @@
   font-weight: 400;
 }
 
+.third-grid-container .text .moreText{
+  display: none;
+}
+
 .third-grid-container .teacher-image-div {
   grid-row: 3/4;
   grid-column: 2/4;
